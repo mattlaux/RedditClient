@@ -1,0 +1,17 @@
+@mixin link-hover($font-weight, $color: inherit, $background-color: inherit) {
+  &:hover {
+      font-weight: $font-weight;
+      color: $color;
+      background-color: $background-color;
+  }
+}
+
+@mixin image-container() {
+  overflow: hidden;
+
+  img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+  }
+}
