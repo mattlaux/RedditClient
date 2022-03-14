@@ -8,8 +8,8 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin: testing-library/react",
-        "plugin: jest-dom/recommended",
+        "plugin:testing-library/react",
+        "plugin:jest-dom/recommended",
         "prettier"
     ],
     "parserOptions": {
