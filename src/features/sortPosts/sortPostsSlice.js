@@ -3,7 +3,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 const initialState = {
   sortCategory: 'hot',
   error: null,
-  status: 'idle'
+  status: 'idle',
+  posts: []
 };
 
 export const sortPostsAsync = createAsyncThunk(
@@ -13,7 +14,8 @@ export const sortPostsAsync = createAsyncThunk(
       const response = await fetch(`https://www.reddit.com/${state.sortCategory}.json`);
       if (response.ok) {
         const jsonResponse = await response.json();
-        return jsonResponse.data.children;
+        const posts = jsonResponse.data.children;
+        return posts;
       }
       throw new Error('Request Failed!');
     } catch (error) {
@@ -28,6 +30,12 @@ export const sortPostsSlice = createSlice({
   reducers: {
     changeSortCategory: (state, action) => {
       state.sortCategory = action.payload;
+    },
+    removePosts: (state) => {
+      state.posts = [];
+    },
+    addPosts: (state, action) => {
+      state.posts = action.payload;
     }
   },
   extraReducers: {
@@ -43,8 +51,9 @@ export const sortPostsSlice = createSlice({
   }
 });
 
-export const { changeSortCategory } = sortPostsSlice.actions;
+export const { changeSortCategory, removePosts, addPosts } = sortPostsSlice.actions;
 
 export const selectSortCategory = (state) => state.sortPosts.sortCategory;
+export const selectPosts = (state) => state.sortPosts.posts;
 
 export default sortPostsSlice.reducer;
