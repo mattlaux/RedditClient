@@ -9,9 +9,9 @@ const initialState = {
 
 export const sortPostsAsync = createAsyncThunk(
   'sortPosts/fetchPosts',
-  async (state) => {
+  async (sortCategory) => {
     try {
-      const response = await fetch(`https://www.reddit.com/${state.sortCategory}.json`);
+      const response = await fetch(`https://www.reddit.com/${sortCategory}.json`);
       if (response.ok) {
         const jsonResponse = await response.json();
         const posts = jsonResponse.data.children;
@@ -19,7 +19,7 @@ export const sortPostsAsync = createAsyncThunk(
       }
       throw new Error('Request Failed!');
     } catch (error) {
-      state.error = error;
+      return error;
     }
   }
 );
@@ -42,11 +42,13 @@ export const sortPostsSlice = createSlice({
     [sortPostsAsync.pending]: (state) => {
       state.status = 'loading posts';
     },
-    [sortPostsAsync.fulfilled]: (state) => {
+    [sortPostsAsync.fulfilled]: (state, action) => {
       state.status = 'succeeded';
+      state.posts = action.payload;
     },
-    [sortPostsAsync.rejected]: (state) => {
+    [sortPostsAsync.rejected]: (state, action) => {
       state.status = 'failed to retrieve posts';
+      state.error = action.payload;
     }
   }
 });
