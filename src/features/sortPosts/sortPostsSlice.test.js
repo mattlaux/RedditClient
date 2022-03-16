@@ -1,4 +1,4 @@
-import sortPostsReducer, { addPosts, changeSortCategory, removePosts } from './sortPostsSlice';
+import sortPostsReducer, { addPosts, changeSortCategory, removePosts, sortPostsAsync } from './sortPostsSlice';
 
 describe('sort posts reducer', () => {
   const initialState = {
@@ -17,17 +17,17 @@ describe('sort posts reducer', () => {
   });
 
   test('should handle changeSortCategory', () => {
-    const newSortCategory = sortPostsReducer(initialState, changeSortCategory('new'));
-    expect(newSortCategory.sortCategory).toEqual('new');
+    const actual = sortPostsReducer(initialState, changeSortCategory('new'));
+    expect(actual.sortCategory).toEqual('new');
   });
 
   test('should handle removePosts', () => {
-    const posts = sortPostsReducer(initialState, removePosts());
-    expect(posts.posts).toEqual([]);
+    const actual = sortPostsReducer(initialState, removePosts());
+    expect(actual.posts).toEqual([]);
   });
 
   test('should handle addPosts', () => {
-    const posts = sortPostsReducer(initialState, addPosts(
+    const actual = sortPostsReducer(initialState, addPosts(
       {
         approved_at_utc: null,
         subreddit: 'greentext',
@@ -140,7 +140,7 @@ describe('sort posts reducer', () => {
         is_video: false
       }
     ));
-    expect(posts.posts).toEqual(
+    expect(actual.posts).toEqual(
       {
         approved_at_utc: null,
         subreddit: 'greentext',
@@ -253,6 +253,21 @@ describe('sort posts reducer', () => {
         is_video: false
       }
     );
+  });
+
+  test('should handle sortPostsAsync in progress', () => {
+    const actual = sortPostsReducer(initialState, sortPostsAsync.pending);
+    expect(actual.status).toEqual('loading posts');
+  });
+
+  test('should handle sortPostsAsync fulfilled', () => {
+    const actual = sortPostsReducer(initialState, sortPostsAsync.fulfilled);
+    expect(actual.status).toEqual('succeeded');
+  });
+
+  test('should handle sortPostsAsync failed', () => {
+    const actual = sortPostsReducer(initialState, sortPostsAsync.rejected);
+    expect(actual.status).toEqual('failed to retrieve posts');
   });
 
 });
