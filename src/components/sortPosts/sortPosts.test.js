@@ -1,20 +1,13 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '../../test-utils/testing-library-utils';
 import userEvent from '@testing-library/user-event';
 import SortPosts from './sortPosts';
-import { Provider } from 'react-redux';
-import { store } from '../../app/store';
-
 
 describe('<SortPosts />', () => {
 
   test('category buttons render', () => {
     
-    render(
-      <Provider store={store}>
-        <SortPosts />
-      </Provider>
-    );
+    render(<SortPosts />);
     const hotCategory = screen.getByRole('button', { name: /hot/i });
     const newCategory = screen.getByRole('button', { name: /new/i });
     const topCategory = screen.getByRole('button', { name: /top/i });
@@ -26,11 +19,7 @@ describe('<SortPosts />', () => {
 
   test('clicked category has gray background', () => {
     
-    render(
-      <Provider store={store}>
-        <SortPosts />
-      </Provider>
-    );
+    render(<SortPosts />);
     const hotCategory = screen.getByRole('button', { name: /hot/i });
     const newCategory = screen.getByRole('button', { name: /new/i });
 
