@@ -1,4 +1,4 @@
-import sortPostsReducer, { addPosts, changeSortCategory, removePosts, sortPostsAsync } from './sortPostsSlice';
+import sortPostsReducer, { addPosts, changeSortCategory, removePosts, sortPostsAsync } from './postsSlice';
 
 describe('sort posts reducer', () => {
   const initialState = {

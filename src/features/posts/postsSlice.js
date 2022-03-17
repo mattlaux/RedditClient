@@ -7,8 +7,8 @@ const initialState = {
   posts: []
 };
 
-export const sortPostsAsync = createAsyncThunk(
-  'sortPosts/fetchPosts',
+export const fetchPosts = createAsyncThunk(
+  'posts/fetchPosts',
   async (sortCategory) => {
     try {
       const response = await fetch(`https://www.reddit.com/${sortCategory}.json`);
@@ -24,8 +24,8 @@ export const sortPostsAsync = createAsyncThunk(
   }
 );
 
-export const sortPostsSlice = createSlice({
-  name: 'sortPosts',
+export const postsSlice = createSlice({
+  name: 'posts',
   initialState,
   reducers: {
     changeSortCategory: (state, action) => {
@@ -39,23 +39,23 @@ export const sortPostsSlice = createSlice({
     }
   },
   extraReducers: {
-    [sortPostsAsync.pending]: (state) => {
+    [fetchPosts.pending]: (state) => {
       state.status = 'loading posts';
     },
-    [sortPostsAsync.fulfilled]: (state, action) => {
+    [fetchPosts.fulfilled]: (state, action) => {
       state.status = 'succeeded';
       state.posts = action.payload;
     },
-    [sortPostsAsync.rejected]: (state, action) => {
+    [fetchPosts.rejected]: (state, action) => {
       state.status = 'failed to retrieve posts';
       state.error = action.payload;
     }
   }
 });
 
-export const { changeSortCategory, removePosts, addPosts } = sortPostsSlice.actions;
+export const { changeSortCategory, removePosts, addPosts } = postsSlice.actions;
 
-export const selectSortCategory = (state) => state.sortPosts.sortCategory;
-export const selectPosts = (state) => state.sortPosts.posts;
+export const selectSortCategory = (state) => state.posts.sortCategory;
+export const selectPosts = (state) => state.posts.posts;
 
-export default sortPostsSlice.reducer;
+export default postsSlice.reducer;

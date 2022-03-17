@@ -1,5 +1,5 @@
 import React from 'react';
-import { changeSortCategory, removePosts, sortPostsAsync, selectSortCategory } from './sortPostsSlice';
+import { changeSortCategory, removePosts, fetchPosts, selectSortCategory } from '../../features/posts/postsSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 
@@ -10,19 +10,19 @@ function SortPosts() {
   const onClickHot = () => {
     dispatch(changeSortCategory('hot'));
     dispatch(removePosts);
-    dispatch(sortPostsAsync('hot'));
+    dispatch(fetchPosts('hot'));
   };
 
   const onClickNew = () => {
     dispatch(changeSortCategory('new'));
     dispatch(removePosts);
-    dispatch(sortPostsAsync('new'));
+    dispatch(fetchPosts('new'));
   };
 
   const onClickTop = () => {
     dispatch(changeSortCategory('top')); 
     dispatch(removePosts);
-    dispatch(sortPostsAsync('top'));
+    dispatch(fetchPosts('top'));
   };
   
   return (
