@@ -30,9 +30,6 @@ export const postsSlice = createSlice({
     },
     removePosts: (state) => {
       state.posts = [];
-    },
-    addPosts: (state, action) => {
-      state.posts = action.payload;
     }
   },
   extraReducers: {
