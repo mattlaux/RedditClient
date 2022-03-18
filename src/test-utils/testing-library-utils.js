@@ -3,12 +3,13 @@ import { render as rtlRender } from '@testing-library/react';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import postsReducer from '../features/posts/postsSlice';
+import commentsReducer from '../features/comments/commentsSlice';
 
 function render(
   ui,
   {
     preloadedState,
-    store = configureStore({ reducer: { posts: postsReducer }, preloadedState }),
+    store = configureStore({ reducer: { posts: postsReducer, comments: commentsReducer }, preloadedState }),
     ...renderOptions
   } = {}
 ) {
