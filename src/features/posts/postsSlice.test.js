@@ -4,7 +4,8 @@ describe('posts reducer', () => {
   const initialState = {
     sortCategory: 'hot',
     error: null,
-    status: 'idle'
+    status: 'idle',
+    posts: []
   };
 
   test('should handle initial state', () => {
