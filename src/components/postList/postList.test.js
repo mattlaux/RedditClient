@@ -7,7 +7,7 @@ import { server } from '../../mocks/server';
 
 describe('<PostList />', () => {
   
-  test('hot posts are rendered as default on initial page load', async () => {
+  test('renders hot posts as default on initial page load', async () => {
 
     render(<PostList />);
 

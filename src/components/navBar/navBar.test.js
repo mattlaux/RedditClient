@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 describe('<NavBar />', () => {
 
-  test('logo renders', () => {
+  test('renders logo', () => {
     render(
       <Router>
         <Routes>
@@ -21,7 +21,7 @@ describe('<NavBar />', () => {
     expect(redditTitle).toBeInTheDocument();
   });
 
-  test('home is a functioning link', () => {
+  test('renders home as a functioning link', () => {
     render(
       <Router>
         <Routes>
@@ -34,7 +34,7 @@ describe('<NavBar />', () => {
     expect(homeButton).toBeInTheDocument();
   });
 
-  test('search Reddit bar initializes with placeholder Search Reddit and accepts typed input', () => {
+  test('renders search Reddit bar initialized with placeholder Search Reddit and accepts typed input', () => {
     render(
       <Router>
         <Routes>

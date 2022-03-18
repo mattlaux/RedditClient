@@ -5,7 +5,7 @@ import SortPosts from './sortPosts';
 
 describe('<SortPosts />', () => {
 
-  test('category buttons render', () => {
+  test('renders category buttons', () => {
     
     render(<SortPosts />);
     const hotCategory = screen.getByRole('button', { name: /hot/i });
@@ -17,7 +17,7 @@ describe('<SortPosts />', () => {
     expect(topCategory).toBeInTheDocument();
   });
 
-  test('clicked category has gray background', () => {
+  test('renders gray background for active category', () => {
     
     render(<SortPosts />);
     const hotCategory = screen.getByRole('button', { name: /hot/i });
