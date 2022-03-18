@@ -7,20 +7,17 @@ const initialState = {
   posts: []
 };
 
+
 export const fetchPosts = createAsyncThunk(
   'posts/fetchPosts',
   async (sortCategory) => {
-    try {
-      const response = await fetch(`https://www.reddit.com/${sortCategory}.json`);
-      if (response.ok) {
-        const jsonResponse = await response.json();
-        const posts = jsonResponse.data.children;
-        return posts;
-      }
-      throw new Error('Request Failed!');
-    } catch (error) {
-      return error;
+    const response = await fetch(`https://www.reddit.com/${sortCategory}.json`);
+    if (response.ok) {
+      const jsonResponse = await response.json();
+      const posts = jsonResponse.data.children;
+      return posts;
     }
+    throw new Error('Request Failed!');
   }
 );
 
@@ -57,5 +54,6 @@ export const { changeSortCategory, removePosts, addPosts } = postsSlice.actions;
 
 export const selectSortCategory = (state) => state.posts.sortCategory;
 export const selectPosts = (state) => state.posts.posts;
+export const selectStatus = (state) => state.posts.status;
 
 export default postsSlice.reducer;
