@@ -29,7 +29,7 @@ function PostList() {
   }, [status]);
 
   useEffect(() => {
-    const filteredPosts = posts.filter(post => post.data.title.includes(searchContent));
+    const filteredPosts = posts.filter(post => post.data.title.toLowerCase().includes(searchContent.toLowerCase()));
     const filteredPostsContent = filteredPosts.map((post) => (
       <Post
         key={post.data.id}
