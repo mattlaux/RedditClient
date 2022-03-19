@@ -50,4 +50,17 @@ describe('<NavBar />', () => {
     expect(searchBar).toHaveValue('Test input for reddit search bar');
   });
 
+  test('allows a max of 50 characters in the search bar', () => {
+    render(
+      <Router>
+        <Routes>
+          <Route path='*' element={<NavBar />} />
+        </Routes>
+      </Router>);
+
+    const searchBar = screen.getByPlaceholderText(/search reddit/i);
+
+    expect(searchBar.maxLength).toBe(50);
+  });
+
 });

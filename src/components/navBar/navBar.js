@@ -10,7 +10,7 @@ function NavBar() {
         <NavLink to='home'>Home</NavLink>
       </nav>
       <form>
-        <input type='search' id='search' name='search' placeholder='Search Reddit'></input>
+        <input type='search' id='search' name='search' placeholder='Search Reddit' maxLength={50} ></input>
       </form>
     </header>
   );
