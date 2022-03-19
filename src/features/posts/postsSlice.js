@@ -55,5 +55,6 @@ export const { changeSortCategory, removePosts, updateSearch } = postsSlice.acti
 export const selectSortCategory = (state) => state.posts.sortCategory;
 export const selectPosts = (state) => state.posts.posts;
 export const selectStatus = (state) => state.posts.status;
+export const selectSearchContent = (state) => state.posts.searchContent;
 
 export default postsSlice.reducer;
