@@ -1,19 +1,21 @@
-import postsReducer, { changeSortCategory, removePosts, fetchPosts } from './postsSlice';
+import postsReducer, { changeSortCategory, removePosts, fetchPosts, updateSearch } from './postsSlice';
 
 describe('posts reducer', () => {
   const initialState = {
     sortCategory: 'hot',
-    error: null,
+    error: '',
     status: 'idle',
-    posts: []
+    posts: [],
+    searchContent: ''
   };
 
   test('should handle initial state', () => {
     expect(postsReducer(undefined, { type: 'unknown' })).toEqual({
       sortCategory: 'hot',
-      error: null,
+      error: '',
       status: 'idle',
-      posts: []
+      posts: [],
+      searchContent: ''
     });
   });
 
@@ -40,6 +42,11 @@ describe('posts reducer', () => {
   test('should handle sortPostsAsync failed', () => {
     const actual = postsReducer(initialState, fetchPosts.rejected);
     expect(actual.status).toEqual('failed to retrieve posts');
+  });
+
+  test('should handle updateSearch', () => {
+    const actual = postsReducer(initialState, updateSearch('test search'));
+    expect(actual.searchContent).toEqual('test search');
   });
 
 });

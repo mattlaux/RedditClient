@@ -2,9 +2,10 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   sortCategory: 'hot',
-  error: null,
+  error: '',
   status: 'idle',
-  posts: []
+  posts: [],
+  searchContent: ''
 };
 
 export const fetchPosts = createAsyncThunk(
@@ -29,6 +30,9 @@ export const postsSlice = createSlice({
     },
     removePosts: (state) => {
       state.posts = [];
+    },
+    updateSearch: (state, action) => {
+      state.searchContent = action.payload;
     }
   },
   extraReducers: {
@@ -46,7 +50,7 @@ export const postsSlice = createSlice({
   }
 });
 
-export const { changeSortCategory, removePosts } = postsSlice.actions;
+export const { changeSortCategory, removePosts, updateSearch } = postsSlice.actions;
 
 export const selectSortCategory = (state) => state.posts.sortCategory;
 export const selectPosts = (state) => state.posts.posts;
