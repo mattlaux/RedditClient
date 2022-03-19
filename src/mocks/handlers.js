@@ -486,7 +486,7 @@ export const handlers = [
       }
     })
   )),
-  rest.get('https://www.reddit.com/r/greentext/comments/tep5ud/anon_is_a_rapist.json', (req, res, ctx) => RegExp(
+  rest.get('https://www.reddit.com/r/greentext/comments/tep5ud/anon_is_a_rapist.json', (req, res, ctx) => res(
     ctx.json([
       {
         kind: 't1',
