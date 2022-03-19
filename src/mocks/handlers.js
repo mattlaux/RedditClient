@@ -21,7 +21,7 @@ export const handlers = [
               mod_reason_title: null,
               gilded: 0,
               clicked: false,
-              title: 'Anon is a rapist',
+              title: 'Anon is a rapist ukraine',
               link_flair_richtext: [],
               subreddit_name_prefixed: 'r/greentext',
               hidden: false,
