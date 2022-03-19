@@ -10,7 +10,7 @@ const initialState = {
 export const fetchComments = createAsyncThunk(
   'comments/fetchComments',
   async (postPermalink) => {
-    const response = await fetch(`https://www.reddit.com/${postPermalink}`);
+    const response = await fetch(`https://www.reddit.com/${postPermalink}.json`);
     if (response.ok) {
       const jsonResponse = await response.json();
       const comments = jsonResponse.data[1].data.children;
@@ -32,11 +32,13 @@ export const commentsSlice = createSlice({
     [fetchComments.pending]: (state) => {
       state.status = 'loading comments';
     },
-    [fetchComments.fulfilled]: (state) => {
+    [fetchComments.fulfilled]: (state, action) => {
       state.status = 'succeeded';
+      state.comments = action.payload;
     },
-    [fetchComments.rejected]: (state) => {
+    [fetchComments.rejected]: (state, action) => {
       state.status = 'failed to retrieve comments';
+      state.error = action.payload;
     }
   }
 });
