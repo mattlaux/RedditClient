@@ -1,19 +1,12 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '../../test-utils/testing-library-utils';
 import userEvent from '@testing-library/user-event';
 import NavBar from './navBar';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 describe('<NavBar />', () => {
 
   test('renders logo', () => {
-    render(
-      <Router>
-        <Routes>
-          <Route path='*' element={<NavBar />} />
-        </Routes>
-      </Router>
-    );
+    render(<NavBar />);
     const logo = screen.getByRole('img', {name: /reddit logo/i});
     const redditTitle = screen.getByRole('heading', { name: /reddit/i});
     
@@ -22,26 +15,14 @@ describe('<NavBar />', () => {
   });
 
   test('renders home as a functioning link', () => {
-    render(
-      <Router>
-        <Routes>
-          <Route path='*' element={<NavBar />} />
-        </Routes>
-      </Router>
-    );
+    render(<NavBar />);
     const homeButton = screen.getByRole('link', { name: /home/i});
 
     expect(homeButton).toBeInTheDocument();
   });
 
   test('renders search Reddit bar initialized with placeholder Search Reddit and accepts typed input', () => {
-    render(
-      <Router>
-        <Routes>
-          <Route path='*' element={<NavBar />} />
-        </Routes>
-      </Router>
-    );
+    render(<NavBar />);
     const searchBar = screen.getByPlaceholderText(/search reddit/i);
 
     expect(searchBar).toBeInTheDocument();
@@ -51,12 +32,7 @@ describe('<NavBar />', () => {
   });
 
   test('allows a max of 50 characters in the search bar', () => {
-    render(
-      <Router>
-        <Routes>
-          <Route path='*' element={<NavBar />} />
-        </Routes>
-      </Router>);
+    render(<NavBar />);
 
     const searchBar = screen.getByPlaceholderText(/search reddit/i);
 
