@@ -5,8 +5,7 @@ const initialState = {
   error: '',
   status: 'idle',
   posts: [],
-  searchContent: '',
-  detailPost: {}
+  searchContent: ''
 };
 
 export const fetchPosts = createAsyncThunk(
@@ -34,9 +33,6 @@ export const postsSlice = createSlice({
     },
     updateSearch: (state, action) => {
       state.searchContent = action.payload;
-    },
-    setDetailPost: (state, action) => {
-      state.detailPost = action.payload;
     }
   },
   extraReducers: {
@@ -60,6 +56,5 @@ export const selectSortCategory = (state) => state.posts.sortCategory;
 export const selectPosts = (state) => state.posts.posts;
 export const selectStatus = (state) => state.posts.status;
 export const selectSearchContent = (state) => state.posts.searchContent;
-export const selectDetailPost = (state) => state.posts.detailPost;
 
 export default postsSlice.reducer;

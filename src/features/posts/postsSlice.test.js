@@ -1,4 +1,4 @@
-import postsReducer, { changeSortCategory, removePosts, fetchPosts, updateSearch, setDetailPost } from './postsSlice';
+import postsReducer, { changeSortCategory, removePosts, fetchPosts, updateSearch } from './postsSlice';
 
 describe('posts reducer', () => {
   const initialState = {
@@ -29,11 +29,6 @@ describe('posts reducer', () => {
   test('should handle removePosts', () => {
     const actual = postsReducer(initialState, removePosts());
     expect(actual.posts).toEqual([]);
-  });
-
-  test('should handle setDetailPost', () => {
-    const actual = postsReducer(initialState, setDetailPost({test: 1, bob: 2}));
-    expect(actual.detailPost).toEqual({test: 1, bob: 2});
   });
 
   test('should handle fetchPosts in progress', () => {
