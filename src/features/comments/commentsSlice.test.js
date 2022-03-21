@@ -1,5 +1,4 @@
 import commentsReducer, {
-  removeComments,
   fetchComments,
 } from './commentsSlice';
 
@@ -16,11 +15,6 @@ describe('comments reducer', () => {
       commentFetchStatus: 'idle',
       comments: [],
     });
-  });
-
-  test('should handle removeComments', () => {
-    const actual = commentsReducer(initialState, removeComments());
-    expect(actual.comments).toEqual([]);
   });
 
   test('should handle fetchComments in progress', () => {
