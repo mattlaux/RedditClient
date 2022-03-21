@@ -3,7 +3,6 @@ import commentsReducer, { removeComments, fetchComments } from './commentsSlice'
 describe ('comments reducer', () => {
 
   const initialState = {
-    postPermalink: '',
     error: null,
     status: 'idle',
     comments: []
@@ -11,7 +10,6 @@ describe ('comments reducer', () => {
 
   test('should handle initial state', () => {
     expect(commentsReducer(undefined, { type: 'unknown' })).toEqual({
-      postPermalink: '',
       error: null,
       status: 'idle',
       comments: []

@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  postPermalink: '',
   error: null,
   status: 'idle',
   comments: []
