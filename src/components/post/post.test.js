@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '../../test-utils/testing-library-utils';
+import { renderProviderAndRouter as render, screen } from '../../test-utils/testing-library-utils';
 import Post from './post';
 
 describe('<Post />', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 // import own custom render function rather than RTL's render
-import { render, screen } from '../../test-utils/testing-library-utils';
+import { renderProviderAndRouter as render, screen } from '../../test-utils/testing-library-utils';
 import PostList from './postList';
 import { rest } from 'msw';
 import { server } from '../../mocks/server';
