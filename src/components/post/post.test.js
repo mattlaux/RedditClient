@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '../../test-utils/testing-library-utils';
 import Post from './post';
 
 describe('<Post />', () => {
@@ -127,7 +127,7 @@ describe('<Post />', () => {
     // comments above each section indicate the property name in the postData object
     
     // title
-    const PostTitle = screen.getByRole('heading', { name: /anon is a rapist/i}); 
+    const PostTitle = screen.getByRole('link', { name: /anon is a rapist/i}); 
     expect(PostTitle).toBeInTheDocument();
 
     // subreddit_name_prefixed
@@ -150,7 +150,5 @@ describe('<Post />', () => {
     const PostComments = screen.getByText(/206 comments/i);
     expect(PostComments).toBeInTheDocument();
   });
-
-  
 
 });
