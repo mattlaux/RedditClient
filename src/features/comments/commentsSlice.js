@@ -12,7 +12,7 @@ export const fetchComments = createAsyncThunk(
     const response = await fetch(`https://www.reddit.com/${postPermalink}.json`);
     if (response.ok) {
       const jsonResponse = await response.json();
-      const comments = jsonResponse.data[1].data.children;
+      const comments = jsonResponse[1].data.children;
       return comments;
     }
     throw new Error('Request Failed!');
