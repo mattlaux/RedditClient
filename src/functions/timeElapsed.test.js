@@ -1,20 +1,23 @@
 import React from 'react';
-import { renderProviderAndRouter as render, screen } from '../test-utils/testing-library-utils';
+import {
+  renderProviderAndRouter as render,
+  screen,
+} from '../test-utils/testing-library-utils';
 import Post from '../components/post/post';
 
 describe('timeElapsed function', () => {
-
   beforeEach(() => {
-    // set system time to constant time so timeElapsed function does not cause tests to fail with mock post data
-    // if system time is not set to constant time timeElapsed function will always return a larger number as we
-    // get further away from the mock past date
+    /*
+    set system time to constant time so timeElapsed function does not cause tests to fail with mock post data.
+    If system time is not set to constant time, timeElapsed function will always return a larger number as we
+    get further away from the mock past date
+    */
     jest
       .useFakeTimers()
       .setSystemTime(new Date('March 16 2022 11:00').getTime());
   });
 
   test('returns post time of 1 day ago', () => {
-    
     // mock post data with post time (created_utc property) adjusted to 1 day ago
     const postData = {
       approved_at_utc: null,
@@ -59,7 +62,8 @@ describe('timeElapsed function', () => {
       approved_by: null,
       is_created_from_ads_ui: false,
       author_premium: false,
-      thumbnail: 'https://b.thumbs.redditmedia.com/WuafJXjS4QF29kz7W2yelt380P1qs8SegVzmYUPd8hM.jpg',
+      thumbnail:
+        'https://b.thumbs.redditmedia.com/WuafJXjS4QF29kz7W2yelt380P1qs8SegVzmYUPd8hM.jpg',
       edited: false,
       author_flair_css_class: null,
       author_flair_richtext: [],
@@ -125,17 +129,16 @@ describe('timeElapsed function', () => {
       created_utc: 1647351356,
       num_crossposts: 0,
       media: null,
-      is_video: false
+      is_video: false,
     };
 
-    render(<Post postData = {postData} />);
+    render(<Post postData={postData} />);
 
     const PostTime = screen.getByText(/1 day ago/i);
     expect(PostTime).toBeInTheDocument();
   });
-  
+
   test('returns post time of 3 days ago', () => {
-    
     // mock post data with post time (created_utc property) adjusted to 3 days ago
     const postData = {
       approved_at_utc: null,
@@ -180,7 +183,8 @@ describe('timeElapsed function', () => {
       approved_by: null,
       is_created_from_ads_ui: false,
       author_premium: false,
-      thumbnail: 'https://b.thumbs.redditmedia.com/WuafJXjS4QF29kz7W2yelt380P1qs8SegVzmYUPd8hM.jpg',
+      thumbnail:
+        'https://b.thumbs.redditmedia.com/WuafJXjS4QF29kz7W2yelt380P1qs8SegVzmYUPd8hM.jpg',
       edited: false,
       author_flair_css_class: null,
       author_flair_richtext: [],
@@ -246,17 +250,16 @@ describe('timeElapsed function', () => {
       created_utc: 1647151356,
       num_crossposts: 0,
       media: null,
-      is_video: false
+      is_video: false,
     };
 
-    render(<Post postData = {postData} />);
+    render(<Post postData={postData} />);
 
     const PostTime = screen.getByText(/3 days ago/i);
     expect(PostTime).toBeInTheDocument();
   });
 
   test('returns post time of 10 hours ago', () => {
-  
     // mock post data with post time (created_utc property) adjusted to 1o hours ago
     const postData = {
       approved_at_utc: null,
@@ -301,7 +304,8 @@ describe('timeElapsed function', () => {
       approved_by: null,
       is_created_from_ads_ui: false,
       author_premium: false,
-      thumbnail: 'https://b.thumbs.redditmedia.com/WuafJXjS4QF29kz7W2yelt380P1qs8SegVzmYUPd8hM.jpg',
+      thumbnail:
+        'https://b.thumbs.redditmedia.com/WuafJXjS4QF29kz7W2yelt380P1qs8SegVzmYUPd8hM.jpg',
       edited: false,
       author_flair_css_class: null,
       author_flair_richtext: [],
@@ -367,13 +371,12 @@ describe('timeElapsed function', () => {
       created_utc: 1647411356,
       num_crossposts: 0,
       media: null,
-      is_video: false
+      is_video: false,
     };
 
-    render(<Post postData = {postData} />);
+    render(<Post postData={postData} />);
 
     const PostTime = screen.getByText(/10 hours ago/i);
     expect(PostTime).toBeInTheDocument();
   });
 });
-

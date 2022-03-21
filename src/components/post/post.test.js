@@ -1,11 +1,12 @@
 import React from 'react';
-import { renderProviderAndRouter as render, screen } from '../../test-utils/testing-library-utils';
+import {
+  renderProviderAndRouter as render,
+  screen,
+} from '../../test-utils/testing-library-utils';
 import Post from './post';
 
 describe('<Post />', () => {
-  
   test('renders correct subreddit, user, title, pic, votes, # of comments', () => {
-    
     // mock postData
     const postData = {
       approved_at_utc: null,
@@ -50,7 +51,8 @@ describe('<Post />', () => {
       approved_by: null,
       is_created_from_ads_ui: false,
       author_premium: false,
-      thumbnail: 'https://b.thumbs.redditmedia.com/WuafJXjS4QF29kz7W2yelt380P1qs8SegVzmYUPd8hM.jpg',
+      thumbnail:
+        'https://b.thumbs.redditmedia.com/WuafJXjS4QF29kz7W2yelt380P1qs8SegVzmYUPd8hM.jpg',
       edited: false,
       author_flair_css_class: null,
       author_flair_richtext: [],
@@ -116,39 +118,27 @@ describe('<Post />', () => {
       created_utc: 1647351356,
       num_crossposts: 0,
       media: null,
-      is_video: false
+      is_video: false,
     };
 
-    render(<Post postData = {postData} />);
+    render(<Post postData={postData} />);
 
-    // NOTE: I did not choose this post. It just happened to be on the front page of Reddit when I requested data 
+    // NOTE: I did not choose this post. It just happened to be on the front page of Reddit when I requested data
     // from the API to be used in the mock handler. Please don't judge me if you happen to see this.
-
-    // comments above each section indicate the property name in the postData object
-    
-    // title
-    const PostTitle = screen.getByRole('link', { name: /anon is a rapist/i}); 
-    expect(PostTitle).toBeInTheDocument();
-
-    // subreddit_name_prefixed
+    const PostTitle = screen.getByRole('link', { name: /anon is a rapist/i });
     const PostSubreddit = screen.getByText(/r\/greentext/i);
-    expect(PostSubreddit).toBeInTheDocument();
-
-    // name
     const PostUser = screen.getByText(/t3_tep5ud/i);
-    expect(PostUser).toBeInTheDocument();
-
-    // url
-    const Pic = screen.getByRole('img', { name: 'https://i.redd.it/fioh7purvjn81.jpg'});
-    expect(Pic).toBeInTheDocument();
-
-    // ups
+    const Pic = screen.getByRole('img', {
+      name: 'https://i.redd.it/fioh7purvjn81.jpg',
+    });
     const PostUpvotes = screen.getByText(/18578/i);
-    expect(PostUpvotes).toBeInTheDocument();
-
-    // num_comments
     const PostComments = screen.getByText(/206 comments/i);
+
+    expect(PostTitle).toBeInTheDocument();
+    expect(PostSubreddit).toBeInTheDocument();
+    expect(PostUser).toBeInTheDocument();
+    expect(Pic).toBeInTheDocument();
+    expect(PostUpvotes).toBeInTheDocument();
     expect(PostComments).toBeInTheDocument();
   });
-
 });

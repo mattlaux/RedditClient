@@ -3,9 +3,8 @@ import { screen, render } from '@testing-library/react';
 import Comment from './comment';
 
 describe('<Comment />', () => {
-
   test('renders body, author, time elapsed, and upvotes for a given comment', () => {
-    
+    // mock data object for comment
     const commentData = {
       subreddit_id: 't5_2srr9',
       approved_at_utc: null,
@@ -49,7 +48,8 @@ describe('<Comment />', () => {
       downs: 0,
       author_flair_richtext: [],
       author_patreon_flair: false,
-      body_html: '&lt;div class="md"&gt;&lt;p&gt;“Do you need consent to go fuck yourself?”&lt;/p&gt;\n' +
+      body_html:
+        '&lt;div class="md"&gt;&lt;p&gt;“Do you need consent to go fuck yourself?”&lt;/p&gt;\n' +
         '&lt;/div&gt;',
       removal_reason: null,
       collapsed_reason: null,
@@ -77,31 +77,21 @@ describe('<Comment />', () => {
       collapsed_because_crowd_control: null,
       mod_reports: [],
       num_reports: null,
-      ups: 3
+      ups: 3,
     };
 
     render(<Comment commentData={commentData} />);
-  
-    // body
-    const commentBody = screen.getByText(/Do you need consent to go fuck yourself?/i);
-    expect(commentBody).toBeInTheDocument();
-  
-    // author
+    
+    const commentBody = screen.getByText(
+      /Do you need consent to go fuck yourself?/i
+    );
     const commentUser = screen.getByText(/thelivinlegend/i);
-    expect(commentUser).toBeInTheDocument();
-  
-    // created_utc
     const commentPostTime = screen.getByText(/(hours ago|days ago)/);
-    expect(commentPostTime).toBeInTheDocument();
-  
-    // ups
     const commentUpvotes = screen.getByText('3');
+
+    expect(commentBody).toBeInTheDocument();
+    expect(commentUser).toBeInTheDocument();
+    expect(commentPostTime).toBeInTheDocument();
     expect(commentUpvotes).toBeInTheDocument();
-  
   });
-
 });
-
-
-
-
