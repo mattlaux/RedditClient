@@ -11,10 +11,10 @@ describe('<PostList />', () => {
 
     render(<PostList />);
 
-    const firstPostTitle = await screen.findByRole('heading', { name: /anon is a rapist/i });
+    const firstPostTitle = await screen.findByRole('link', { name: /anon is a rapist/i });
     expect(firstPostTitle).toBeInTheDocument();
 
-    const secondPostTitle = await screen.findByRole('heading', { name: /2.6 First Banners Via Lumie/i });
+    const secondPostTitle = await screen.findByRole('link', { name: /2.6 First Banners Via Lumie/i });
     expect(secondPostTitle).toBeInTheDocument();
   });
 
