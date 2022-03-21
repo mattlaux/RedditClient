@@ -1,15 +1,17 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  error: null,
-  status: 'idle',
-  comments: []
+  error: '',
+  commentFetchStatus: 'idle',
+  comments: [],
 };
 
 export const fetchComments = createAsyncThunk(
   'comments/fetchComments',
   async (postPermalink) => {
-    const response = await fetch(`https://www.reddit.com/${postPermalink}.json`);
+    const response = await fetch(
+      `https://www.reddit.com/${postPermalink}.json`
+    );
     if (response.ok) {
       const jsonResponse = await response.json();
       const comments = jsonResponse[1].data.children;
@@ -22,11 +24,7 @@ export const fetchComments = createAsyncThunk(
 export const commentsSlice = createSlice({
   name: 'comments',
   initialState,
-  reducers: {
-    removeComments: (state) => {
-      state.comments = [];
-    }
-  },
+  reducers: {},
   extraReducers: {
     [fetchComments.pending]: (state) => {
       state.status = 'loading comments';
@@ -38,11 +36,9 @@ export const commentsSlice = createSlice({
     [fetchComments.rejected]: (state, action) => {
       state.status = 'failed to retrieve comments';
       state.error = action.payload;
-    }
-  }
+    },
+  },
 });
-
-export const { removeComments } = commentsSlice.actions;
 
 export const selectStatus = (state) => state.comments.status;
 export const selectComments = (state) => state.comments.comments;

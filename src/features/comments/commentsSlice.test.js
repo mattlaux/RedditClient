@@ -1,18 +1,20 @@
-import commentsReducer, { removeComments, fetchComments } from './commentsSlice';
+import commentsReducer, {
+  removeComments,
+  fetchComments,
+} from './commentsSlice';
 
-describe ('comments reducer', () => {
-
+describe('comments reducer', () => {
   const initialState = {
-    error: null,
-    status: 'idle',
-    comments: []
+    error: '',
+    commentFetchStatus: 'idle',
+    comments: [],
   };
 
   test('should handle initial state', () => {
     expect(commentsReducer(undefined, { type: 'unknown' })).toEqual({
-      error: null,
-      status: 'idle',
-      comments: []
+      error: '',
+      commentFetchStatus: 'idle',
+      comments: [],
     });
   });
 
@@ -35,5 +37,4 @@ describe ('comments reducer', () => {
     const actual = commentsReducer(initialState, fetchComments.rejected);
     expect(actual.status).toEqual('failed to retrieve comments');
   });
-
 });
