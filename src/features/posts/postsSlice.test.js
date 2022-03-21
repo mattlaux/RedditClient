@@ -6,8 +6,7 @@ describe('posts reducer', () => {
     error: '',
     status: 'idle',
     posts: [],
-    searchContent: '',
-    detailPost: {}
+    searchContent: ''
   };
 
   test('should handle initial state', () => {
@@ -16,8 +15,7 @@ describe('posts reducer', () => {
       error: '',
       status: 'idle',
       posts: [],
-      searchContent: '',
-      detailPost: {}
+      searchContent: ''
     });
   });
 
