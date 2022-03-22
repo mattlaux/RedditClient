@@ -16,7 +16,7 @@ function CommentList() {
   const [commentsContent, setCommentsContent] = useState([]);
 
   useEffect(() => {
-    if (status === 'succeeded') {
+    if (status === 'succeeded' && comments.length > 0) {
       const commentsContent = comments.map((comment) => (
         <Comment key={comment.data.id} commentData={comment.data} />
       ));
