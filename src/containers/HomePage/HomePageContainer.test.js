@@ -50,6 +50,20 @@ describe('<HomePageContainer />', () => {
     expect(filteredPost).not.toBeInTheDocument();
   });
 
+  test('displays no match message if search bar input has no matches', async () => {
+    render(<HomePageContainer />);
+
+    const posts = await screen.findAllByText(/r\//);
+    const searchBar = screen.getByPlaceholderText(/search reddit/i);
+    let noMatchMessage = screen.queryByText(/No posts match your search/i);
+
+    expect(noMatchMessage).not.toBeInTheDocument();
+    expect(posts.length).toEqual(2);
+    userEvent.type(searchBar, 'fdafdafdsa');
+    noMatchMessage = screen.getByText(/No posts match your search/i);
+    expect(noMatchMessage).toBeInTheDocument();
+  });
+
   test('filters new posts case-insensitive with input from search bar', async () => {
     render(<HomePageContainer />);
 

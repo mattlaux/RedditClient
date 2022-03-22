@@ -40,10 +40,15 @@ function PostList() {
     const filteredPosts = posts.filter((post) =>
       post.data.title.toLowerCase().includes(searchContent.toLowerCase())
     );
-    const filteredPostsContent = filteredPosts.map((post) => (
-      <Post key={post.data.id} postData={post.data} />
-    ));
-    setPostsContent(filteredPostsContent);
+    if (filteredPosts.length > 0) {
+      const filteredPostsContent = filteredPosts.map((post) => (
+        <Post key={post.data.id} postData={post.data} />
+      ));
+      setPostsContent(filteredPostsContent);
+    } else {
+      const filteredPostsContent = 'No posts match your search';
+      setPostsContent(filteredPostsContent);
+    }
   }, [searchContent]);
 
   return <div>{postsContent}</div>;
