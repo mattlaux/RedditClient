@@ -26,7 +26,7 @@ function PostList() {
   }, []);
 
   useEffect(() => {
-    if (status === 'succeeded') {
+    if (status === 'succeeded' && posts.length > 0) {
       const postsContent = posts.map((post) => (
         <Post key={post.data.id} postData={post.data} />
       ));
