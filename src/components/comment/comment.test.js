@@ -87,7 +87,7 @@ describe('<Comment />', () => {
     );
     const commentUser = screen.getByText(/thelivinlegend/i);
     const commentPostTime = screen.getByText(/(hours ago|days ago)/);
-    const commentUpvotes = screen.getByText('3');
+    const commentUpvotes = screen.getByText(/upvotes: 3/i);
 
     expect(commentBody).toBeInTheDocument();
     expect(commentUser).toBeInTheDocument();
