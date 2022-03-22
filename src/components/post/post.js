@@ -21,25 +21,25 @@ function Post({ postData }) {
 
   return (
     <article>
-      <p>{postData.ups}</p>
-      <p>{postData.subreddit_name_prefixed}</p>
-      <p>
-        Posted by {postData.name} {timeElapsed(postData.created_utc)}
-      </p>
+      <p>{postData.ups ? postData.ups : 'Error'}</p>
+      <p>{postData.subreddit_name_prefixed ? postData.subreddit_name_prefixed : 'Post subreddit failed to load'}</p>
+      <p>Posted by {postData.name ? postData.name : 'Post author failed to load'}</p>
+      <p>{postData.created_utc ? timeElapsed(postData.created_utc) : 'Post time failed to load'}</p>
+        
       {/* Render as link if on main page but render as heading if on detail view */}
       {location.pathname === '/detailView' ? (
-        <h2>{postData.title}</h2>
+        <h2>{postData.title ? postData.title : 'Post title failed to load'}</h2>
       ) : (
         <NavLink
           to="/detailView"
           state={{ postData: postData }}
           onClick={handleClickPost}
         >
-          {postData.title}
+          {postData.title ? postData.title : 'Post title failed to load'}
         </NavLink>
       )}
-      <img src={postData.url} alt={postData.url}></img>
-      <p>{postData.num_comments} comments</p>
+      {postData.url ? <img src={postData.url} alt={postData.url}></img> : 'Post picture failed to load'}
+      <p>{postData.num_comments ? postData.num_comments : 'Number of comments failed to load'} comments</p>
     </article>
   );
 }
