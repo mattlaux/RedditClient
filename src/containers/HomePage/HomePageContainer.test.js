@@ -59,11 +59,11 @@ describe('<HomePageContainer />', () => {
 
     const posts = await screen.findAllByText(/r\//);
     const searchBar = screen.getByPlaceholderText(/search reddit/i);
+    userEvent.type(searchBar, 'russia');
     const russiaPost = screen.getByText('Russia is scary');
     const filteredPost = screen.queryByText('meirl');
 
     expect(posts.length).toEqual(2);
-    userEvent.type(searchBar, 'russia');
     expect(russiaPost).toBeInTheDocument();
     expect(filteredPost).not.toBeInTheDocument();
   });
