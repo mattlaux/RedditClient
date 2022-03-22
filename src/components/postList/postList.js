@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   selectPosts,
-  selectStatus,
+  selectPostsFetchStatus,
   fetchPosts,
   selectSearchContent,
 } from '../../features/posts/postsSlice';
@@ -17,7 +17,7 @@ Filters shown posts by input in search bar.
 function PostList() {
   const dispatch = useDispatch();
   const posts = useSelector(selectPosts);
-  const status = useSelector(selectStatus);
+  const status = useSelector(selectPostsFetchStatus);
   const searchContent = useSelector(selectSearchContent);
   const [postsContent, setPostsContent] = useState([]);
 

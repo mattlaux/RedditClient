@@ -3,9 +3,9 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 const initialState = {
   sortCategory: 'hot',
   error: '',
-  status: 'idle',
+  postsFetchStatus: 'idle',
   posts: [],
-  searchContent: ''
+  searchContent: '',
 };
 
 export const fetchPosts = createAsyncThunk(
@@ -33,28 +33,29 @@ export const postsSlice = createSlice({
     },
     updateSearch: (state, action) => {
       state.searchContent = action.payload;
-    }
+    },
   },
   extraReducers: {
     [fetchPosts.pending]: (state) => {
-      state.status = 'loading posts';
+      state.postsFetchStatus = 'loading posts';
     },
     [fetchPosts.fulfilled]: (state, action) => {
-      state.status = 'succeeded';
+      state.postsFetchStatus = 'succeeded';
       state.posts = action.payload;
     },
     [fetchPosts.rejected]: (state, action) => {
-      state.status = 'failed to retrieve posts';
+      state.postsFetchStatus = 'failed to retrieve posts';
       state.error = action.payload;
-    }
-  }
+    },
+  },
 });
 
-export const { changeSortCategory, removePosts, updateSearch, setDetailPost } = postsSlice.actions;
+export const { changeSortCategory, removePosts, updateSearch, setDetailPost } =
+  postsSlice.actions;
 
 export const selectSortCategory = (state) => state.posts.sortCategory;
 export const selectPosts = (state) => state.posts.posts;
-export const selectStatus = (state) => state.posts.status;
+export const selectPostsFetchStatus = (state) => state.posts.postsFetchStatus;
 export const selectSearchContent = (state) => state.posts.searchContent;
 
 export default postsSlice.reducer;

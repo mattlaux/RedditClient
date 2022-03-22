@@ -4,7 +4,7 @@ describe('posts reducer', () => {
   const initialState = {
     sortCategory: 'hot',
     error: '',
-    status: 'idle',
+    postsFetchStatus: 'idle',
     posts: [],
     searchContent: ''
   };
@@ -13,7 +13,7 @@ describe('posts reducer', () => {
     expect(postsReducer(undefined, { type: 'unknown' })).toEqual({
       sortCategory: 'hot',
       error: '',
-      status: 'idle',
+      postsFetchStatus: 'idle',
       posts: [],
       searchContent: ''
     });
@@ -31,17 +31,17 @@ describe('posts reducer', () => {
 
   test('should handle fetchPosts in progress', () => {
     const actual = postsReducer(initialState, fetchPosts.pending);
-    expect(actual.status).toEqual('loading posts');
+    expect(actual.postsFetchStatus).toEqual('loading posts');
   });
 
   test('should handle sortPostsAsync fulfilled', () => {
     const actual = postsReducer(initialState, fetchPosts.fulfilled);
-    expect(actual.status).toEqual('succeeded');
+    expect(actual.postsFetchStatus).toEqual('succeeded');
   });
 
   test('should handle sortPostsAsync failed', () => {
     const actual = postsReducer(initialState, fetchPosts.rejected);
-    expect(actual.status).toEqual('failed to retrieve posts');
+    expect(actual.postsFetchStatus).toEqual('failed to retrieve posts');
   });
 
   test('should handle updateSearch', () => {
