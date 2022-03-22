@@ -27,20 +27,20 @@ export const commentsSlice = createSlice({
   reducers: {},
   extraReducers: {
     [fetchComments.pending]: (state) => {
-      state.status = 'loading comments';
+      state.commentFetchStatus = 'loading comments';
     },
     [fetchComments.fulfilled]: (state, action) => {
-      state.status = 'succeeded';
+      state.commentFetchStatus = 'succeeded';
       state.comments = action.payload;
     },
     [fetchComments.rejected]: (state, action) => {
-      state.status = 'failed to retrieve comments';
+      state.commentFetchStatus = 'failed to retrieve comments';
       state.error = action.payload;
     },
   },
 });
 
-export const selectStatus = (state) => state.comments.status;
+export const selectCommentFetchStatus = (state) => state.comments.commentFetchStatus;
 export const selectComments = (state) => state.comments.comments;
 
 export default commentsSlice.reducer;

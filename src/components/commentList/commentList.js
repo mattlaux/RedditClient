@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
-  selectStatus,
+  selectCommentFetchStatus,
   selectComments,
 } from '../../features/comments/commentsSlice';
 import Comment from '../comment/comment';
@@ -11,7 +11,7 @@ Renders list of all comments once comments have been successfully received
 from Reddit API. Returns status if comments have not been successfully received.
 */
 function CommentList() {
-  const status = useSelector(selectStatus);
+  const status = useSelector(selectCommentFetchStatus);
   const comments = useSelector(selectComments);
   const [commentsContent, setCommentsContent] = useState([]);
 

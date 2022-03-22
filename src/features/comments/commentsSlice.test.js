@@ -19,16 +19,16 @@ describe('comments reducer', () => {
 
   test('should handle fetchComments in progress', () => {
     const actual = commentsReducer(initialState, fetchComments.pending);
-    expect(actual.status).toEqual('loading comments');
+    expect(actual.commentFetchStatus).toEqual('loading comments');
   });
 
   test('should handle fetchComments fulfulled', () => {
     const actual = commentsReducer(initialState, fetchComments.fulfilled);
-    expect(actual.status).toEqual('succeeded');
+    expect(actual.commentFetchStatus).toEqual('succeeded');
   });
 
   test('should handle fetchComments failed', () => {
     const actual = commentsReducer(initialState, fetchComments.rejected);
-    expect(actual.status).toEqual('failed to retrieve comments');
+    expect(actual.commentFetchStatus).toEqual('failed to retrieve comments');
   });
 });
