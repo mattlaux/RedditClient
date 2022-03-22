@@ -22,7 +22,7 @@ describe('<App />', () => {
     userEvent.click(postTitle);
 
     // Render post information in detail view format
-    const homeLink = await screen.findByRole('link', { name: /home/i });
+    const homeLink = await screen.findByRole('link');
     const subreddit = screen.getByRole('heading', { name: /r\/greentext/i });
     const title = screen.getByText(/anon is a rapist ukraine/i);
     const commentsLoadingMessage = screen.getByText(/loading comments/i);
@@ -36,13 +36,13 @@ describe('<App />', () => {
     const firstCommentBody = await screen.findByText(
       /Do you need consent to go fuck yourself?/i
     ); // body
-    const firstCommentUser = screen.getByText('thelivinlegend'); // author
-    const firstCommentUpvotes = screen.getByText('84'); // ups
+    const firstCommentUser = screen.getByText(/thelivinlegend/i); // author
+    const firstCommentUpvotes = screen.getByText(/84/); // ups
     const lastCommentBody = screen.getByText(
       'You touched her model penis, later virgins'
     ); // body
-    const lastCommentUser = screen.getByText('OhSnap404'); // author
-    const lastCommentUpvotes = screen.getByText('83'); // ups
+    const lastCommentUser = screen.getByText(/OhSnap404/i); // author
+    const lastCommentUpvotes = screen.getByText(/83/); // ups
     const numComments = screen.getAllByText(/ago/i);
 
     expect(firstCommentBody).toBeInTheDocument();
