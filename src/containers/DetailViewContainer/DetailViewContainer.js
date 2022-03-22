@@ -3,6 +3,8 @@ import Post from '../../components/post/post';
 import CommentList from '../../components/commentList/commentList';
 import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 /*
 Renders detailed view of post after title is clicked from main page.
@@ -14,9 +16,11 @@ function DetailViewContainer() {
   const { postData } = location.state;
 
   return (
-    <div>
-      <NavLink to="/">Return Home</NavLink>
-      <h2>{postData.subreddit_name_prefixed}</h2>
+    <div className='detailView'>
+      <div className='detailViewHeader'>
+        <NavLink to="/" className='homeLink'><FontAwesomeIcon icon={solid('arrow-left')} /></NavLink>
+        <h2 className='subredditHeader'>{postData.subreddit_name_prefixed}</h2>
+      </div>
       <Post postData={postData} />
       <CommentList />
     </div>
