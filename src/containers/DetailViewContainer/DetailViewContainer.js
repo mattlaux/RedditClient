@@ -16,6 +16,7 @@ function DetailViewContainer() {
   return (
     <div>
       <NavLink to="/">Return Home</NavLink>
+      <h2>{postData.subreddit_name_prefixed}</h2>
       <Post postData={postData} />
       <CommentList />
     </div>
