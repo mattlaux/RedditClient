@@ -9,10 +9,10 @@ Singular comment component. commentData received from commentList component via 
 function Comment({ commentData }) {
   return (
     <aside>
-      <p>{commentData.author}</p>
-      <p>{timeElapsed(commentData.created_utc)}</p>
-      <p>{commentData.body}</p>
-      <p>{commentData.ups}</p>
+      <p>{commentData.author ? commentData.author : 'Comment author failed to load'}</p>
+      <p>{commentData.created_utc ? timeElapsed(commentData.created_utc) : 'Comment post time failed to load'}</p>
+      <p>{commentData.body ? commentData.body : 'Comment body failed to load'}</p>
+      <p>{commentData.ups ? commentData.ups : 'Error'}</p>
     </aside>
   );
 }
