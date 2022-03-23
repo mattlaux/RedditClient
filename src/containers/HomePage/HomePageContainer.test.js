@@ -25,15 +25,15 @@ describe('<HomePageContainer />', () => {
     expect(russiaPost).toBeInTheDocument();
 
     // Navigate back to main page where posts from hot should be loaded
-    const homeButton = screen.getByRole('link', { name: /home/i });
-    userEvent.click(homeButton);
+    const hotButton = screen.getByRole('button', { name: /hot/i });
+    userEvent.click(hotButton);
     const loadingTextHot = await screen.findByText(/loading posts/i);
     expect(loadingTextHot).toBeInTheDocument();
     const hotPost = await screen.findByText(/anon is a rapist ukraine/i);
     expect(hotPost).toBeInTheDocument();
 
     const hotCategory = screen.getByRole('button', { name: /hot/i });
-    expect(hotCategory).toHaveStyle('background-color: lightgray');
+    expect(hotCategory).toHaveStyle('border-bottom: 3px solid lightblue');
   });
 
   test('filters hot posts case-insensitive with input from search bar', async () => {
