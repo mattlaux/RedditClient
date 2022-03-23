@@ -23,12 +23,12 @@ describe('<SortPosts />', () => {
     const hotCategory = screen.getByRole('button', { name: /hot/i });
     const newCategory = screen.getByRole('button', { name: /new/i });
 
-    expect(hotCategory).toHaveStyle('background-color: lightgray');
-    expect(newCategory).toHaveStyle('background-color: transparent');
+    expect(hotCategory).toHaveStyle('border-bottom: 3px solid lightblue');
+    expect(newCategory).toHaveStyle('border-bottom: transparent');
 
     userEvent.click(newCategory);
 
-    expect(hotCategory).toHaveStyle('background-color: transparent');
-    expect(newCategory).toHaveStyle('background-color: lightgray');
+    expect(hotCategory).toHaveStyle('border-bottom: transparent');
+    expect(newCategory).toHaveStyle('border-bottom: 3px solid lightblue');
   });
 });
