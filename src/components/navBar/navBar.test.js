@@ -16,13 +16,6 @@ describe('<NavBar />', () => {
     expect(redditTitle).toBeInTheDocument();
   });
 
-  test('renders home as a functioning link', () => {
-    render(<NavBar />);
-
-    const homeButton = screen.getByRole('link', { name: /home/i });
-    expect(homeButton).toBeInTheDocument();
-  });
-
   test('renders search Reddit bar initialized with placeholder Search Reddit and accepts typed input', () => {
     render(<NavBar />);
 
