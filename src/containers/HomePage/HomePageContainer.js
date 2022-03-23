@@ -12,7 +12,9 @@ function HomePageContainer() {
     <div>
       <NavBar />
       <SortPosts />
-      <PostsList />
+      <div className='postsList'>
+        <PostsList />
+      </div>
     </div>
   );
 }
