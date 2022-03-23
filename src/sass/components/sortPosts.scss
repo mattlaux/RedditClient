@@ -1,0 +1,16 @@
+.sortPosts {
+  border-bottom: 3px solid gainsboro;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 3%;
+  position: fixed;
+  top: 115px;
+  width: 100%;
+  background-color: white;
+  z-index: 2;
+
+  button {
+    margin-bottom: 1%;
+  }
+}
