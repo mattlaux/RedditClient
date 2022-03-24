@@ -403,4 +403,214 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+.commentBlock {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 20px 1fr 20px;
+  margin: 1% 1%;
+  border: 2px solid gray;
+  border-radius: 5px;
+  text-align: center;
+  align-content: center;
+}
+.commentBlock p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-wrap: anywhere;
+}
+.commentBlock .commentAuthor {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 0.75rem;
+  background-color: lightblue;
+}
+.commentBlock .commentBody {
+  grid-column: 1;
+  grid-row: 2;
+}
+.commentBlock .commentUpvotes {
+  grid-column: 1;
+  grid-row: 3;
+  font-size: 0.75rem;
+  background-color: whitesmoke;
+}
+
+.post {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 5px auto 1fr 10px 20px;
+  grid-gap: 10px;
+  overflow: hidden;
+}
+.post img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.post .postUpvotes {
+  grid-column: 1;
+  grid-row: 5;
+  margin: 0% 2%;
+  color: #636262;
+}
+.post .postUpvotes > * {
+  display: inline;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+.post .postUpvotes .upArrow {
+  color: green;
+}
+.post .postUpvotes .downArrow {
+  color: red;
+}
+.post .postAuthor {
+  grid-column: 1;
+  grid-row: 4;
+  font-size: 0.9rem;
+  margin: 0% 2%;
+  color: #636262;
+}
+.post .subredditName {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0% 2%;
+}
+.post .subredditName p {
+  text-align: left;
+  color: #636262;
+}
+.post .postTitle {
+  grid-column: 1;
+  grid-row: 2;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-top: 10px;
+  margin: 10px 2%;
+}
+.post .postImg {
+  grid-column: 1;
+  grid-row: 3;
+}
+.post .numComments {
+  grid-column: 1;
+  grid-row: 5;
+  text-align: center;
+  color: #636262;
+}
+.post .postSelfText {
+  grid-column: 1;
+  grid-row: 3;
+  margin: 3%;
+  text-align: center;
+}
+.post .postMedia {
+  text-align: center;
+}
+.post .postVideo {
+  grid-column: 1;
+  grid-row: 3;
+}
+.post .postThumbnail {
+  grid-column: 1;
+  grid-row: 3;
+  margin: auto;
+}
+
+.postDivider {
+  border: 3px solid gainsboro;
+}
+
+.sortPosts {
+  border-bottom: 3px solid gainsboro;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 3%;
+  position: fixed;
+  top: 115px;
+  width: 100%;
+  background-color: whitesmoke;
+  z-index: 2;
+}
+.sortPosts button {
+  margin-bottom: 1%;
+}
+
+.header {
+  overflow: hidden;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 50px 50px;
+  position: fixed;
+  top: 0;
+  background-color: orange;
+  width: 100%;
+  padding-top: 15px;
+  z-index: 2;
+}
+.header img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.header img {
+  grid-column: 1;
+  grid-row: 1;
+  width: 50px;
+  height: auto;
+  display: flex;
+  justify-self: end;
+  margin-right: 10%;
+}
+.header h1 {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: left;
+}
+.header form {
+  grid-column: 1/span 2;
+  grid-row: 2;
+  margin-top: 2%;
+}
+
+.detailView {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 40px 1fr;
+}
+.detailView .detailViewHeader {
+  background-color: orange;
+  display: grid;
+  grid-template-columns: 0.25fr 1fr 0.25fr;
+  grid-template-rows: 1fr;
+  padding: 1%;
+}
+.detailView .detailViewHeader .homeLink {
+  grid-column: 1;
+  grid-row: 1;
+  margin-left: 5px;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+}
+.detailView .detailViewHeader .subredditHeader {
+  grid-column: 2;
+  grid-row: 1;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.postsList {
+  position: relative;
+  top: 160px;
+  z-index: 1;
+}
+
 /*# sourceMappingURL=main.css.map */
