@@ -22,7 +22,7 @@ function DetailViewContainer() {
         <h2 className='subredditHeader'>{postData.subreddit_name_prefixed}</h2>
       </div>
       <Post postData={postData} />
-      <CommentList />
+      <CommentList postData={postData} />
     </div>
   );
 }

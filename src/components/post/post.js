@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { timeElapsed } from '../../functions/timeElapsed';
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { fetchComments } from '../../features/comments/commentsSlice';
 import { useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
@@ -14,18 +12,12 @@ Creates one Reddit post. Data received from postsList component via prop
 
 function Post({ postData }) {
   const location = useLocation();
-  const dispatch = useDispatch();
   const [postImage, setPostImage] = useState(null);
   const [postVideo, setPostVideo] = useState(null);
   const [articleURL, setArticleURL] = useState(null);
   const [thumbnail, setThumbnail] = useState(null);
   const [embed, setEmbed] = useState(null);
   const mediaFiles = ['.gif', '.mp4', '.mov', '.jpg', '.png'];
-
-  // Begin fetch process for comments from Reddit API while detail view of post renders
-  const handleClickPost = () => {
-    dispatch(fetchComments(postData.permalink));
-  };
 
   // Determines type of media to render based on entries on postData object received from API
   // TODO: improve video player
@@ -95,7 +87,6 @@ function Post({ postData }) {
             <NavLink
               to="/detailView"
               state={{ postData: postData }}
-              onClick={handleClickPost}
             >
               {postData.title ? postData.title : 'Post title failed to load'}
             </NavLink>
