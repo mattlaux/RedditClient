@@ -12,14 +12,14 @@ import PropTypes from 'prop-types';
 Renders list of all comments once comments have been successfully received
 from Reddit API. Returns status if comments have not been successfully received.
 */
-function CommentList({ postData }) {
+function CommentList({ postDataPermalink }) {
   const status = useSelector(selectCommentFetchStatus);
   const comments = useSelector(selectComments);
   const [commentsContent, setCommentsContent] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchComments(postData.permalink));
+    dispatch(fetchComments(postDataPermalink));
   }, []);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ function CommentList({ postData }) {
 }
 
 CommentList.propTypes = {
-  postData: PropTypes.object.isRequired,
+  postDataPermalink: PropTypes.string.isRequired,
 };
 
 export default CommentList;
