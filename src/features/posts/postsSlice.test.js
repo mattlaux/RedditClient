@@ -1,4 +1,9 @@
-import postsReducer, { changeSortCategory, removePosts, fetchPosts, updateSearch } from './postsSlice';
+import postsReducer, {
+  changeSortCategory,
+  removePosts,
+  fetchPosts,
+  updateSearch,
+} from './postsSlice';
 
 describe('posts reducer', () => {
   const initialState = {
@@ -6,7 +11,7 @@ describe('posts reducer', () => {
     error: '',
     postsFetchStatus: 'idle',
     posts: [],
-    searchContent: ''
+    searchContent: '',
   };
 
   test('should handle initial state', () => {
@@ -15,7 +20,7 @@ describe('posts reducer', () => {
       error: '',
       postsFetchStatus: 'idle',
       posts: [],
-      searchContent: ''
+      searchContent: '',
     });
   });
 
@@ -48,5 +53,4 @@ describe('posts reducer', () => {
     const actual = postsReducer(initialState, updateSearch('test search'));
     expect(actual.searchContent).toEqual('test search');
   });
-
 });

@@ -84,10 +84,7 @@ function Post({ postData }) {
               {postData.title ? postData.title : 'Post title failed to load'}
             </h2>
           ) : (
-            <NavLink
-              to="/detailView"
-              state={{ postData: postData }}
-            >
+            <NavLink to="/detailView" state={{ postData: postData }}>
               {postData.title ? postData.title : 'Post title failed to load'}
             </NavLink>
           )}

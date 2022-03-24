@@ -1,6 +1,4 @@
-import commentsReducer, {
-  fetchComments,
-} from './commentsSlice';
+import commentsReducer, { fetchComments } from './commentsSlice';
 
 describe('comments reducer', () => {
   const initialState = {

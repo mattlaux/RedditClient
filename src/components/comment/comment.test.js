@@ -81,7 +81,7 @@ describe('<Comment />', () => {
     };
 
     render(<Comment commentData={commentData} />);
-    
+
     const commentBody = screen.getByText(
       /Do you need consent to go fuck yourself?/i
     );
@@ -176,7 +176,9 @@ describe('<Comment />', () => {
 
     const commentBody = screen.getByText(/comment body failed to load/i);
     const commentUser = screen.getByText(/comment author failed to load/i);
-    const commentPostTime = screen.getByText(/comment post time failed to load/i);
+    const commentPostTime = screen.getByText(
+      /comment post time failed to load/i
+    );
     const commentUpvotes = screen.getByText(/error/i);
 
     expect(commentBody).toBeInTheDocument();

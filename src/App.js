@@ -7,8 +7,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<HomePageContainer />} />
-        <Route path='/detailView' element={<DetailViewContainer />} />
+        <Route path="/" element={<HomePageContainer />} />
+        <Route path="/detailView" element={<DetailViewContainer />} />
       </Routes>
     </Router>
   );

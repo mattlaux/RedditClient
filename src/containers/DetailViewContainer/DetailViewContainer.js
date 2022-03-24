@@ -16,10 +16,12 @@ function DetailViewContainer() {
   const { postData } = location.state;
 
   return (
-    <div className='detailView'>
-      <div className='detailViewHeader'>
-        <NavLink to="/" className='homeLink'><FontAwesomeIcon icon={solid('arrow-left')} /></NavLink>
-        <h2 className='subredditHeader'>{postData.subreddit_name_prefixed}</h2>
+    <div className="detailView">
+      <div className="detailViewHeader">
+        <NavLink to="/" className="homeLink">
+          <FontAwesomeIcon icon={solid('arrow-left')} />
+        </NavLink>
+        <h2 className="subredditHeader">{postData.subreddit_name_prefixed}</h2>
       </div>
       <Post postData={postData} />
       <CommentList postData={postData} />

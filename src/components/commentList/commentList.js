@@ -1,4 +1,4 @@
-import React, { useEffect, useState, } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectCommentFetchStatus,
@@ -23,7 +23,7 @@ function CommentList({ postData }) {
   }, []);
 
   useEffect(() => {
-    if (status==='succeeded' && comments.length > 0) {
+    if (status === 'succeeded' && comments.length > 0) {
       const commentsContent = comments.map((comment) => (
         <Comment key={comment.data.id} commentData={comment.data} />
       ));

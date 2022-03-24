@@ -35,7 +35,8 @@ function SortPosts() {
       <button
         onClick={onClickHot}
         style={{
-          borderBottom: sortCategory === 'hot' ? '3px solid lightblue' : 'transparent',
+          borderBottom:
+            sortCategory === 'hot' ? '3px solid lightblue' : 'transparent',
         }}
       >
         Hot
@@ -43,7 +44,8 @@ function SortPosts() {
       <button
         onClick={onClickNew}
         style={{
-          borderBottom: sortCategory === 'new' ? '3px solid lightblue' : 'transparent',
+          borderBottom:
+            sortCategory === 'new' ? '3px solid lightblue' : 'transparent',
         }}
       >
         New
@@ -51,7 +53,8 @@ function SortPosts() {
       <button
         onClick={onClickTop}
         style={{
-          borderBottom: sortCategory === 'top' ? '3px solid lightblue' : 'transparent',
+          borderBottom:
+            sortCategory === 'top' ? '3px solid lightblue' : 'transparent',
         }}
       >
         Top

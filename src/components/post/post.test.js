@@ -452,7 +452,7 @@ describe('<Post />', () => {
       is_created_from_ads_ui: false,
       author_premium: false,
       thumbnail:
-            'https://b.thumbs.redditmedia.com/WuafJXjS4QF29kz7W2yelt380P1qs8SegVzmYUPd8hM.jpg',
+        'https://b.thumbs.redditmedia.com/WuafJXjS4QF29kz7W2yelt380P1qs8SegVzmYUPd8hM.jpg',
       edited: false,
       author_flair_css_class: null,
       author_flair_richtext: [],
@@ -519,8 +519,8 @@ describe('<Post />', () => {
       num_crossposts: 0,
       media: {
         reddit_video: {
-          scrubber_media_url: 'https://v.redd.it/ma2skh9g16p81/DASH_96.mp4'
-        }
+          scrubber_media_url: 'https://v.redd.it/ma2skh9g16p81/DASH_96.mp4',
+        },
       },
       is_video: false,
     };
@@ -577,7 +577,7 @@ describe('<Post />', () => {
       is_created_from_ads_ui: false,
       author_premium: false,
       thumbnail:
-            'https://b.thumbs.redditmedia.com/WuafJXjS4QF29kz7W2yelt380P1qs8SegVzmYUPd8hM.jpg',
+        'https://b.thumbs.redditmedia.com/WuafJXjS4QF29kz7W2yelt380P1qs8SegVzmYUPd8hM.jpg',
       edited: false,
       author_flair_css_class: null,
       author_flair_richtext: [],
@@ -644,15 +644,17 @@ describe('<Post />', () => {
       num_crossposts: 0,
       media: {
         oembed: {
-          thumbnail_url: 'https://i.ytimg.com/vi/2PQi7l546jY/hqdefault.jpg'
-        }
+          thumbnail_url: 'https://i.ytimg.com/vi/2PQi7l546jY/hqdefault.jpg',
+        },
       },
       is_video: false,
     };
 
     render(<Post postData={postData} />);
 
-    const postEmbed = screen.getByRole('img', { name: 'https://i.ytimg.com/vi/2PQi7l546jY/hqdefault.jpg'});
+    const postEmbed = screen.getByRole('img', {
+      name: 'https://i.ytimg.com/vi/2PQi7l546jY/hqdefault.jpg',
+    });
     expect(postEmbed).toBeInTheDocument();
   });
 
@@ -702,7 +704,7 @@ describe('<Post />', () => {
       is_created_from_ads_ui: false,
       author_premium: false,
       thumbnail:
-                'https://b.thumbs.redditmedia.com/WuafJXjS4QF29kz7W2yelt380P1qs8SegVzmYUPd8hM.jpg',
+        'https://b.thumbs.redditmedia.com/WuafJXjS4QF29kz7W2yelt380P1qs8SegVzmYUPd8hM.jpg',
       edited: false,
       author_flair_css_class: null,
       author_flair_richtext: [],
@@ -770,9 +772,9 @@ describe('<Post />', () => {
       media: null,
       is_video: false,
     };
-    
+
     render(<Post postData={postData} />);
-    
+
     const postMedia = screen.queryByRole('img');
     const links = screen.getAllByRole('link');
 
@@ -896,9 +898,11 @@ describe('<Post />', () => {
 
     render(<Post postData={postData} />);
 
-    const articleURL = screen.getByRole('link', { name: /click here to view article/i});
+    const articleURL = screen.getByRole('link', {
+      name: /click here to view article/i,
+    });
     const images = screen.queryAllByRole('img');
-    
+
     expect(articleURL).toBeInTheDocument();
     expect(images.length).toEqual(0);
   });
@@ -948,7 +952,8 @@ describe('<Post />', () => {
       approved_by: null,
       is_created_from_ads_ui: false,
       author_premium: false,
-      thumbnail: 'https://b.thumbs.redditmedia.com/qR1Y0O6_5vByHY3t3oB8ywixHEpMoxco3W0HBP99gGM.jpg',
+      thumbnail:
+        'https://b.thumbs.redditmedia.com/qR1Y0O6_5vByHY3t3oB8ywixHEpMoxco3W0HBP99gGM.jpg',
       edited: false,
       author_flair_css_class: null,
       author_flair_richtext: [],
@@ -1016,12 +1021,16 @@ describe('<Post />', () => {
       media: null,
       is_video: false,
     };
-    
+
     render(<Post postData={postData} />);
 
-    const thumbnail = screen.getByRole('img', { name: 'https://www.independent.co.uk/news/world/americas/us-politics/dont-say-gay-joe-harding-tornado-b2037924.html'});
-    const link = screen.getByRole('link', { name: 'https://www.independent.co.uk/news/world/americas/us-politics/dont-say-gay-joe-harding-tornado-b2037924.html' });
-    
+    const thumbnail = screen.getByRole('img', {
+      name: 'https://www.independent.co.uk/news/world/americas/us-politics/dont-say-gay-joe-harding-tornado-b2037924.html',
+    });
+    const link = screen.getByRole('link', {
+      name: 'https://www.independent.co.uk/news/world/americas/us-politics/dont-say-gay-joe-harding-tornado-b2037924.html',
+    });
+
     expect(thumbnail).toBeInTheDocument();
     expect(link).toBeInTheDocument();
   });
