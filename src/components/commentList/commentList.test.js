@@ -1,36 +1,21 @@
+import { renderProviderAndRouter as render, screen } from '../../test-utils/testing-library-utils';
 import React from 'react';
-import {
-  renderProvider as render,
-  screen,
-} from './test-utils/testing-library-utils';
-import userEvent from '@testing-library/user-event';
-import App from './App';
-import { server } from './mocks/server';
+import CommentList from './commentList';
+import { server } from '../../mocks/server';
 import { rest } from 'msw';
 
-describe('<App />', () => {
-  test('Happy path: renders detailed view with comments when post title is clicked and returns to home page', async () => {
-    render(<App />);
+/*
+Tested via integration test in app.test.js as commentList relies on input from HomePageContainer
+to render
+*/
 
-    // Render loading posts message while posts are being retrieved
-    const postsLoadingMessage = screen.getByText(/loading posts/i);
-    expect(postsLoadingMessage).toBeInTheDocument();
+describe('<CommentList />', () => {
 
-    // Start at home page and then click post title that routes to detail view
-    const postTitle = await screen.findByText('Anon is a rapist ukraine');
-    expect(postTitle).toBeInTheDocument();
-    userEvent.click(postTitle);
-
-    // Render post information in detail view format
-    const homeLink = await screen.findByRole('link');
-    const subreddit = screen.getByRole('heading', { name: /r\/greentext/i });
-    const title = screen.getByText(/anon is a rapist ukraine/i);
-    const commentsLoadingMessage = screen.getByText(/loading comments/i);
-    expect(commentsLoadingMessage).toBeInTheDocument();
-
-    expect(homeLink).toBeInTheDocument();
-    expect(subreddit).toBeInTheDocument();
-    expect(title).toBeInTheDocument();
+  test('renders all comments for given post', async () => {
+    // mock postData permalink
+    const postDataPermalink = '/r/greentext/comments/tep5ud/anon_is_a_rapist/';
+  
+    render(<CommentList postDataPermalink={postDataPermalink} />);
 
     // Render all comments. Comments to side indicate data property name returned by Reddit API
     const firstCommentBody = await screen.findByText(
@@ -51,15 +36,10 @@ describe('<App />', () => {
     expect(lastCommentBody).toBeInTheDocument();
     expect(lastCommentUser).toBeInTheDocument();
     expect(lastCommentUpvotes).toBeInTheDocument();
-    expect(numComments.length).toBe(14);
-
-    // Return home to main screen
-    userEvent.click(homeLink);
-    const secondPost = await screen.findByText('2.6 First Banners Via Lumie');
-    expect(secondPost).toBeInTheDocument();
+    expect(numComments.length).toBe(13);
   });
 
-  test('displays error message if comments were not successfully received after clicking post title', async () => {
+  test('displays error message if comments were not successfully received', async () => {
     server.resetHandlers(
       rest.get(
         'https://www.reddit.com/r/greentext/comments/tep5ud/anon_is_a_rapist/.json',
@@ -121,7 +101,7 @@ describe('<App />', () => {
                     is_created_from_ads_ui: false,
                     author_premium: false,
                     thumbnail:
-                      'https://b.thumbs.redditmedia.com/WuafJXjS4QF29kz7W2yelt380P1qs8SegVzmYUPd8hM.jpg',
+                    'https://b.thumbs.redditmedia.com/WuafJXjS4QF29kz7W2yelt380P1qs8SegVzmYUPd8hM.jpg',
                     edited: false,
                     author_flair_css_class: null,
                     author_flair_richtext: [],
@@ -143,7 +123,7 @@ describe('<App />', () => {
                     suggested_sort: 'top',
                     banned_at_utc: null,
                     url_overridden_by_dest:
-                      'https://i.redd.it/fioh7purvjn81.jpg',
+                    'https://i.redd.it/fioh7purvjn81.jpg',
                     view_count: null,
                     archived: false,
                     no_follow: false,
@@ -236,7 +216,7 @@ describe('<App />', () => {
                     is_created_from_ads_ui: false,
                     author_premium: false,
                     thumbnail:
-                      'https://b.thumbs.redditmedia.com/tI2wZiNQoWK5yZEfbJcxIyYCGax-zpa6cm7djNsXD1E.jpg',
+                    'https://b.thumbs.redditmedia.com/tI2wZiNQoWK5yZEfbJcxIyYCGax-zpa6cm7djNsXD1E.jpg',
                     edited: false,
                     author_flair_css_class: null,
                     author_flair_richtext: [],
@@ -258,7 +238,7 @@ describe('<App />', () => {
                     suggested_sort: null,
                     banned_at_utc: null,
                     url_overridden_by_dest:
-                      'https://i.redd.it/dk8j1kzrxin81.jpg',
+                    'https://i.redd.it/dk8j1kzrxin81.jpg',
                     view_count: null,
                     archived: false,
                     no_follow: false,
@@ -270,7 +250,7 @@ describe('<App />', () => {
                     awarders: [],
                     media_only: false,
                     link_flair_template_id:
-                      '106b842a-66f5-11eb-8c6c-0eb16bfcfc5d',
+                    '106b842a-66f5-11eb-8c6c-0eb16bfcfc5d',
                     can_gild: false,
                     spoiler: false,
                     locked: false,
@@ -299,7 +279,7 @@ describe('<App />', () => {
                     author_patreon_flair: false,
                     author_flair_text_color: null,
                     permalink:
-                      '/r/Genshin_Impact_Leaks/comments/telufc/26_first_banners_via_lumie/',
+                    '/r/Genshin_Impact_Leaks/comments/telufc/26_first_banners_via_lumie/',
                     parent_whitelist_status: 'all_ads',
                     stickied: false,
                     url: 'https://i.redd.it/dk8j1kzrxin81.jpg',
@@ -317,12 +297,10 @@ describe('<App />', () => {
       )
     );
 
-    render(<App />);
+    // mock postData permalink
+    const postDataPermalink = '/r/greentext/comments/tep5ud/anon_is_a_rapist/';
 
-    // Start at home page and then click post title that routes to detail view
-    const postTitle = await screen.findByText('Anon is a rapist ukraine');
-    expect(postTitle).toBeInTheDocument();
-    userEvent.click(postTitle);
+    render(<CommentList postDataPermalink={postDataPermalink} />);
 
     // Render comment loading message
     const commentsLoadingMessage = screen.getByText(/loading comments/i);

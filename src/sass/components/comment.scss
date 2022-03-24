@@ -1,0 +1,36 @@
+.commentBlock {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 20px 1fr 20px;
+  margin: 1% 1%;
+  border: 2px solid gray;
+  border-radius: 5px;
+  text-align: center;
+  align-content: center;
+
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-wrap: anywhere;
+  }
+
+  .commentAuthor {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 0.75rem;
+    background-color: lightblue;
+  }
+
+  .commentBody {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .commentUpvotes {
+    grid-column: 1;
+    grid-row: 3;
+    font-size: 0.75rem;
+    background-color: whitesmoke;
+  }
+}

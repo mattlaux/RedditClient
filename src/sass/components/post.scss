@@ -1,0 +1,96 @@
+.post {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 5px auto 1fr 10px 20px;
+  grid-gap: 10px;
+
+  @include image-container;
+
+  .postUpvotes {
+    grid-column: 1;
+    grid-row: 5;
+    margin: 0% 2%;
+    color: rgb(99, 98, 98);
+
+    > * {
+      display: inline;
+      margin-left: 2px;
+      margin-right: 2px;
+    }
+
+    .upArrow {
+      color: green;
+    }
+
+    .downArrow {
+      color: red;
+    }
+  }
+
+  .postAuthor {
+    grid-column: 1;
+    grid-row: 4;
+    font-size: 0.9rem;
+    margin: 0% 2%;
+    color: rgb(99, 98, 98);
+  }
+
+  .subredditName {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0% 2%;
+
+    p {
+      text-align: left;
+      color: rgb(99, 98, 98);
+    }
+  }
+
+  .postTitle {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-top: 10px;
+    margin: 10px 2%;
+  }
+
+  .postImg {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .numComments {
+    grid-column: 1;
+    grid-row: 5;
+    text-align: center;
+    color: rgb(99, 98, 98);
+  }
+
+  .postSelfText {
+    grid-column: 1;
+    grid-row: 3;
+    margin: 3%;
+    text-align: center;
+  }
+
+  .postMedia {
+    text-align: center;
+  }
+
+  .postVideo {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .postThumbnail {
+    grid-column: 1;
+    grid-row: 3;
+    margin: auto;
+  }
+}
+
+.postDivider {
+  border: 3px solid gainsboro;
+}

@@ -1,3 +1,11 @@
-@import "helpers/mixins";
+@import 'helpers/mixins.scss';
 
-@import "base/resets";
+@import 'base/resets.scss';
+
+@import 'components/comment.scss';
+@import 'components/post.scss';
+@import 'components/sortPosts.scss';
+@import 'components/navBar.scss';
+
+@import 'pages/detailView.scss';
+@import 'pages/homePage.scss';

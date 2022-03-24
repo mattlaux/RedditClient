@@ -1,10 +1,54 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Mock Reddit Web Application
 
-## Available Scripts
+This project is an imitation of the Reddit web application. It was built with React, Redux-Toolkit, and Sass. It was tested with Jest and React Testing Library.
+
+<font color='red'>TBD add screenshot</font>
+![Mock Reddit Homepage](./src/media/reddit-logo.png)
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Features](#features)
+- [Project Status](#project-status)
+- [Inspiration](#inspiration)
+- [Sources](#sources)
+
+## Introduction
+
+---
+
+This project was created in order to demonstrate and improve upon my skills with React, Redux, Jest, React Testing Library, and Sass. In addition, this project emphasized requesting data from the Reddit API and properly handling the returned data.
+
+## Technologies
+
+---
+
+- React 17.0.2
+- Redux-Toolkit 1.8.0
+- Jest 27.5.1
+- React Testing Library 12.1.4
+- Sass 1.3.0
+- Cypress <font color='red'>TBD</font>
+
+## Setup <font color='red'>TBD</font>
+
+---
+
+**Note:** A live hosted version of the application can be seen here. <font color='red'>TBD</font>
+
+Setup of this web application is straight forward:
+
+- Download the repository Reddit Client linked here.
+- Navigate to project directory and enter `cd my-app`
+- Run `npm install` and then `npm start`. The app will open in development mode at http://localhost:3000.
+
+### Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+#### `npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -12,12 +56,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `npm test`
+#### `npm test`
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+#### `npm run build`
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -27,18 +71,31 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Retrieve posts from hot, new, or top from Reddit homepage
+- Click on post titles to see a detail view of the post with all comments
+- Click on links to view outside articles included in posts
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Project Status
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+This project has finished development for now. The primary goal was to deomnstrate my abilities with React, Redux, TDD, and Sass. I felt as though it was more productive to move onto other projects and skills rather than spend any additional time on this project. If I were to continue with this project the next steps are listed below.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Areas of Improvement:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Video player (Right now video data used from Reddit API is poor)
+- Allow login
+- Increased interactivity (save posts, add comment, upvote functionality, etc.)
+
+## Sources
+
+---
+
+- You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- To learn React, check out the [React documentation](https://reactjs.org/).
+- To learn more on the API used, view the [Reddit JSON API Documentation](https://github.com/reddit-archive/reddit/wiki/JSON).
+-
