@@ -59,7 +59,7 @@ describe('<App />', () => {
     expect(secondPost).toBeInTheDocument();
   });
 
-  test('displays error message if comments were not successfully received', async () => {
+  test('displays error message if comments were not successfully received after clicking post title', async () => {
     server.resetHandlers(
       rest.get(
         'https://www.reddit.com/r/greentext/comments/tep5ud/anon_is_a_rapist/.json',
