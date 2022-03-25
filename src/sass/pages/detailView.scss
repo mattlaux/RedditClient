@@ -2,21 +2,35 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: 40px 1fr;
+  background-color: gainsboro;
+  min-width: 350px;
 
   .detailViewHeader {
     background-color: orange;
     display: grid;
     grid-template-columns: 0.25fr 1fr 0.25fr;
     grid-template-rows: 1fr;
-    padding: 1%;
+    height: 80px;
 
     .homeLink {
       grid-column: 1;
       grid-row: 1;
-      margin-left: 5px;
-      font-size: 1.25rem;
+      margin-left: 20px;
+      font-size: 1.5rem;
       display: flex;
       align-items: center;
+
+      p {
+        display: none;
+      }
+
+      @media only screen and (min-width: 700px) {
+        p {
+          font-size: 1rem;
+          margin-left: 10%;
+          display: block;
+        }
+      }
     }
 
     .subredditHeader {
@@ -28,5 +42,23 @@
       display: flex;
       align-items: center;
     }
+  }
+
+  .detailViewPost {
+    margin-top: 33px;
+    display: flex;
+    justify-content: center;
+    
+    .post {
+      border: none;
+      max-width: 700px;
+      background-color: white;
+    }
+  }
+
+  .commentList {
+    max-width: 700px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
