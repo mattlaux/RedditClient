@@ -42,11 +42,12 @@
   }
 
   .cardBottomRow {
+    grid-column: 1;
+    grid-row: 5;
     display: inline-flex;
+    justify-content: space-around;
     
     .postUpvotes {
-      grid-column: 1;
-      grid-row: 5;
       margin: 0px 10px;
       color: rgb(99, 98, 98);
   
@@ -66,9 +67,6 @@
     }
     
     .numComments {
-      grid-column: 1;
-      grid-row: 5;
-      text-align: center;
       color: rgb(99, 98, 98);
     }
   }

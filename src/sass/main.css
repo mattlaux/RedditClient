@@ -490,11 +490,12 @@ code {
   margin-right: auto;
 }
 .postContent .cardBottomRow {
-  display: inline-flex;
-}
-.postContent .cardBottomRow .postUpvotes {
   grid-column: 1;
   grid-row: 5;
+  display: inline-flex;
+  justify-content: space-around;
+}
+.postContent .cardBottomRow .postUpvotes {
   margin: 0px 10px;
   color: #636262;
 }
@@ -510,9 +511,6 @@ code {
   color: red;
 }
 .postContent .cardBottomRow .numComments {
-  grid-column: 1;
-  grid-row: 5;
-  text-align: center;
   color: #636262;
 }
 .postContent .postSelfText {
