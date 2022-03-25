@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: 40px 1fr;
-  background-color: gainsboro;
+  background-color: white;
   min-width: 350px;
 
   .detailViewHeader {
@@ -52,7 +52,7 @@
     .post {
       border: none;
       max-width: 700px;
-      background-color: white;
+      background-color: gainsboro;
     }
   }
 
@@ -60,5 +60,18 @@
     max-width: 700px;
     margin-right: auto;
     margin-left: auto;
+  }
+
+  .loadingComments {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    @include loading;
+    animation: loading 0.5s infinite;
+  
+    img {
+      width: 30%;
+      height: auto;
+    }
   }
 }

@@ -7,6 +7,7 @@ import {
 import Comment from '../comment/comment';
 import { fetchComments } from '../../features/comments/commentsSlice';
 import PropTypes from 'prop-types';
+import logo from '../../media/reddit-logo.png';
 
 /*
 Renders list of all comments once comments have been successfully received
@@ -33,7 +34,13 @@ function CommentList({ postDataPermalink }) {
     }
   }, [status]);
 
-  return <div>{commentsContent}</div>;
+  return status === 'loading comments' ? (
+    <div className='loadingComments'>
+      <img src={logo} alt='Animated Reddit Logo'></img>
+    </div>
+  ) : (
+    <div>{commentsContent}</div>
+  );
 }
 
 CommentList.propTypes = {

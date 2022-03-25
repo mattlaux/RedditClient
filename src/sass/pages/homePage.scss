@@ -5,6 +5,19 @@
   min-width: 315px;
 }
 
+.loadingPosts {
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+  @include loading;
+  animation: loading 0.5s infinite;
+
+  img {
+    width: 30%;
+    height: auto;
+  }
+}
+
 @media only screen and (min-width: 700px) {
   .postsList {
     column-count: 2;
