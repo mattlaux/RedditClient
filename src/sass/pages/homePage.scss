@@ -1,5 +1,35 @@
 .postsList {
-  position: relative;
-  top: 160px;
+  position: absolute;
+  margin-top: 160px;
   z-index: 1;
+  min-width: 315px;
 }
+
+@media only screen and (min-width: 700px) {
+  .postsList {
+    column-count: 2;
+    column-gap: 1%;
+  }
+}
+
+@media only screen and (min-width: 950px) {
+  .postsList {
+    column-count: 3;
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  .postsList {
+    column-count: 4;
+  }
+}
+
+@media only screen and (min-width: 2500px) {
+  .postsList {
+    column-count: 5;
+  }
+}
+
+
+
+

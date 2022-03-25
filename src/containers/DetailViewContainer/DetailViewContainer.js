@@ -20,11 +20,16 @@ function DetailViewContainer() {
       <div className="detailViewHeader">
         <NavLink to="/" className="homeLink">
           <FontAwesomeIcon icon={solid('arrow-left')} />
+          <p>Return to MainPage</p>
         </NavLink>
         <h2 className="subredditHeader">{postData.subreddit_name_prefixed}</h2>
       </div>
-      <Post postData={postData} />
-      <CommentList postDataPermalink={postData.permalink} />
+      <div className='detailViewPost'>
+        <Post postData={postData} />
+      </div>
+      <div className='commentList'>
+        <CommentList postDataPermalink={postData.permalink} />
+      </div>
     </div>
   );
 }

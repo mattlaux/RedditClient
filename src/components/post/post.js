@@ -51,8 +51,8 @@ function Post({ postData }) {
   });
 
   return (
-    <div>
-      <article className="post">
+    <div className="post">
+      <article className="postContent">
         <div className="subredditName">
           {/* Render subreddit name if on main page. Do not render if on detailView */}
           {location.pathname !== '/detailView' && (

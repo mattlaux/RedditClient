@@ -187,9 +187,9 @@ select {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
+[type=button],
+[type=reset],
+[type=submit] {
   -webkit-appearance: button;
 }
 
@@ -197,9 +197,9 @@ button,
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type='button']::-moz-focus-inner,
-[type='reset']::-moz-focus-inner,
-[type='submit']::-moz-focus-inner {
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -208,9 +208,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type='button']:-moz-focusring,
-[type='reset']:-moz-focusring,
-[type='submit']:-moz-focusring {
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -260,8 +260,8 @@ textarea {
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
-[type='checkbox'],
-[type='radio'] {
+[type=checkbox],
+[type=radio] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -271,8 +271,8 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type='number']::-webkit-inner-spin-button,
-[type='number']::-webkit-outer-spin-button {
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -280,7 +280,7 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type='search'] {
+[type=search] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -290,7 +290,7 @@ textarea {
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-[type='search']::-webkit-search-decoration {
+[type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -399,9 +399,7 @@ fieldset {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
@@ -411,8 +409,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 .commentBlock {
@@ -440,6 +437,7 @@ code {
 .commentBlock .commentBody {
   grid-column: 1;
   grid-row: 2;
+  background-color: white;
 }
 .commentBlock .commentUpvotes {
   grid-column: 1;
@@ -448,52 +446,52 @@ code {
   background-color: whitesmoke;
 }
 
-.post {
+.postContent {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: 5px auto 1fr 10px 20px;
   grid-gap: 10px;
   overflow: hidden;
 }
-.post img {
+.postContent img {
   display: block;
   max-width: 100%;
   height: auto;
 }
-.post .postUpvotes {
+.postContent .postUpvotes {
   grid-column: 1;
   grid-row: 5;
-  margin: 0% 2%;
+  margin: 0px 10px;
   color: #636262;
 }
-.post .postUpvotes > * {
+.postContent .postUpvotes > * {
   display: inline;
   margin-left: 2px;
   margin-right: 2px;
 }
-.post .postUpvotes .upArrow {
+.postContent .postUpvotes .upArrow {
   color: green;
 }
-.post .postUpvotes .downArrow {
+.postContent .postUpvotes .downArrow {
   color: red;
 }
-.post .postAuthor {
+.postContent .postAuthor {
   grid-column: 1;
   grid-row: 4;
   font-size: 0.9rem;
   margin: 0% 2%;
   color: #636262;
 }
-.post .subredditName {
+.postContent .subredditName {
   grid-column: 1;
   grid-row: 1;
   margin: 0% 2%;
 }
-.post .subredditName p {
+.postContent .subredditName p {
   text-align: left;
   color: #636262;
 }
-.post .postTitle {
+.postContent .postTitle {
   grid-column: 1;
   grid-row: 2;
   text-align: center;
@@ -502,30 +500,30 @@ code {
   margin-top: 10px;
   margin: 10px 2%;
 }
-.post .postImg {
+.postContent .postImg {
   grid-column: 1;
   grid-row: 3;
 }
-.post .numComments {
+.postContent .numComments {
   grid-column: 1;
   grid-row: 5;
   text-align: center;
   color: #636262;
 }
-.post .postSelfText {
+.postContent .postSelfText {
   grid-column: 1;
   grid-row: 3;
   margin: 3%;
   text-align: center;
 }
-.post .postMedia {
+.postContent .postMedia {
   text-align: center;
 }
-.post .postVideo {
+.postContent .postVideo {
   grid-column: 1;
   grid-row: 3;
 }
-.post .postThumbnail {
+.postContent .postThumbnail {
   grid-column: 1;
   grid-row: 3;
   margin: auto;
@@ -535,34 +533,51 @@ code {
   border: 3px solid gainsboro;
 }
 
+@media only screen and (min-width: 700px) {
+  .post {
+    border: 2px solid lightblue;
+    border-radius: 4px;
+    padding: 0.5rem;
+    -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    width: 100%;
+    margin: 1% 0;
+  }
+
+  .postDivider {
+    display: none;
+  }
+}
 .sortPosts {
   border-bottom: 3px solid gainsboro;
   text-align: center;
   display: flex;
   justify-content: space-around;
-  padding-top: 3%;
+  padding-top: 30px;
   position: fixed;
-  top: 115px;
+  top: 80px;
   width: 100%;
   background-color: whitesmoke;
   z-index: 2;
+  min-width: 315px;
 }
 .sortPosts button {
-  margin-bottom: 1%;
+  margin-bottom: 5px;
 }
 
 .header {
   overflow: hidden;
-  text-align: center;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 50px 50px;
+  display: flex;
   position: fixed;
   top: 0;
   background-color: orange;
   width: 100%;
-  padding-top: 15px;
+  min-width: 315px;
+  padding: 15px 20px;
   z-index: 2;
+  align-items: center;
+  justify-content: center;
 }
 .header img {
   display: block;
@@ -570,44 +585,56 @@ code {
   height: auto;
 }
 .header img {
-  grid-column: 1;
-  grid-row: 1;
+  min-width: 50px;
   width: 50px;
   height: auto;
-  display: flex;
-  justify-self: end;
-  margin-right: 10%;
 }
 .header h1 {
-  grid-column: 2;
-  grid-row: 1;
-  text-align: left;
+  margin-left: 20px;
+  margin-right: 20px;
 }
-.header form {
-  grid-column: 1 / span 2;
-  grid-row: 2;
-  margin-top: 2%;
+.header input {
+  background-repeat: no-repeat;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  width: 100%;
+  height: 25px;
+  font-size: 1rem;
+  background-position: 10px 10px;
 }
 
 .detailView {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: 40px 1fr;
+  background-color: gainsboro;
+  min-width: 350px;
 }
 .detailView .detailViewHeader {
   background-color: orange;
   display: grid;
   grid-template-columns: 0.25fr 1fr 0.25fr;
   grid-template-rows: 1fr;
-  padding: 1%;
+  height: 80px;
 }
 .detailView .detailViewHeader .homeLink {
   grid-column: 1;
   grid-row: 1;
-  margin-left: 5px;
-  font-size: 1.25rem;
+  margin-left: 20px;
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
+}
+.detailView .detailViewHeader .homeLink p {
+  display: none;
+}
+@media only screen and (min-width: 700px) {
+  .detailView .detailViewHeader .homeLink p {
+    font-size: 1rem;
+    margin-left: 10%;
+    display: block;
+  }
 }
 .detailView .detailViewHeader .subredditHeader {
   grid-column: 2;
@@ -618,11 +645,49 @@ code {
   display: flex;
   align-items: center;
 }
+.detailView .detailViewPost {
+  margin-top: 33px;
+  display: flex;
+  justify-content: center;
+}
+.detailView .detailViewPost .post {
+  border: none;
+  max-width: 700px;
+  background-color: white;
+}
+.detailView .commentList {
+  max-width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 .postsList {
-  position: relative;
-  top: 160px;
+  position: absolute;
+  margin-top: 160px;
   z-index: 1;
+  min-width: 315px;
+}
+
+@media only screen and (min-width: 700px) {
+  .postsList {
+    column-count: 2;
+    column-gap: 1%;
+  }
+}
+@media only screen and (min-width: 950px) {
+  .postsList {
+    column-count: 3;
+  }
+}
+@media only screen and (min-width: 1700px) {
+  .postsList {
+    column-count: 4;
+  }
+}
+@media only screen and (min-width: 2500px) {
+  .postsList {
+    column-count: 5;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

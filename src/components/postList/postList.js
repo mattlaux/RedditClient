@@ -51,7 +51,7 @@ function PostList() {
     }
   }, [searchContent]);
 
-  return <div>{postsContent}</div>;
+  return <div className='postsList'>{postsContent}</div>;
 }
 
 export default PostList;
