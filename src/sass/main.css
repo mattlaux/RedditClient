@@ -392,7 +392,7 @@ fieldset {
   color: black;
 }
 [href]:hover {
-  font-weight: bold;
+  font-weight: 400;
   color: inherit;
   background-color: inherit;
 }
@@ -532,6 +532,12 @@ code {
   grid-column: 1;
   grid-row: 3;
   margin: auto;
+  border-radius: 100px;
+}
+.postContent .postThumbnail:hover {
+  width: 45%;
+  height: auto;
+  border: 1px solid black;
 }
 
 .postDivider {
