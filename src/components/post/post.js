@@ -145,7 +145,7 @@ function Post({ postData }) {
             <p className="numComments">
               {postData.num_comments
                 ? postData.num_comments
-                : 'Number of comments failed to load'}{' '}
+                : '0'}{' '}
               comments
             </p>
           </NavLink>
