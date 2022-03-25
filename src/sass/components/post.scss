@@ -5,27 +5,6 @@
   grid-gap: 10px;
   @include image-container;
 
-  .postUpvotes {
-    grid-column: 1;
-    grid-row: 5;
-    margin: 0px 10px;
-    color: rgb(99, 98, 98);
-
-    > * {
-      display: inline;
-      margin-left: 2px;
-      margin-right: 2px;
-    }
-
-    .upArrow {
-      color: green;
-    }
-
-    .downArrow {
-      color: red;
-    }
-  }
-
   .postAuthor {
     grid-column: 1;
     grid-row: 4;
@@ -62,11 +41,36 @@
     margin-right: auto;
   }
 
-  .numComments {
-    grid-column: 1;
-    grid-row: 5;
-    text-align: center;
-    color: rgb(99, 98, 98);
+  .cardBottomRow {
+    display: inline-flex;
+    
+    .postUpvotes {
+      grid-column: 1;
+      grid-row: 5;
+      margin: 0px 10px;
+      color: rgb(99, 98, 98);
+  
+      > * {
+        display: inline;
+        margin-left: 2px;
+        margin-right: 2px;
+      }
+  
+      .upArrow {
+        color: green;
+      }
+  
+      .downArrow {
+        color: red;
+      }
+    }
+    
+    .numComments {
+      grid-column: 1;
+      grid-row: 5;
+      text-align: center;
+      color: rgb(99, 98, 98);
+    }
   }
 
   .postSelfText {
