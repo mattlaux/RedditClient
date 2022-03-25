@@ -17,12 +17,13 @@ function NavBar() {
 
   return (
     <header className="header">
-      <img src={logo} alt="Reddit Logo"></img>
+      <figure>
+        <img src={logo} alt="Reddit Logo"></img>
+      </figure>
       <h1>Mock Reddit</h1>
       <form>
         <input
-          type="search"
-          id="search"
+          type="text"
           name="search"
           placeholder="Search Reddit"
           maxLength={50}
