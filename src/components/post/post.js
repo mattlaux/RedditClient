@@ -133,12 +133,23 @@ function Post({ postData }) {
           <p>{postData.ups ? postData.ups : 'Error'}</p>
           <FontAwesomeIcon icon={solid('arrow-down')} className="downArrow" />
         </section>
-        <p className="numComments">
-          {postData.num_comments
-            ? postData.num_comments
-            : 'Number of comments failed to load'}{' '}
-          comments
-        </p>
+        {location.pathname === '/detailView' ? (
+          <p className="numComments">
+            {postData.num_comments
+              ? postData.num_comments
+              : 'Number of comments failed to load'}{' '}
+            comments
+          </p>
+        ) : (
+          <NavLink to="/detailView" state={{ postData: postData }}>
+            <p className="numComments">
+              {postData.num_comments
+                ? postData.num_comments
+                : 'Number of comments failed to load'}{' '}
+              comments
+            </p>
+          </NavLink>
+        )}
       </article>
       <hr className="postDivider"></hr>
     </div>
