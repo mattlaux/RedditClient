@@ -93,6 +93,13 @@
     grid-column: 1;
     grid-row: 3;
     margin: auto;
+    border-radius: 100px;
+
+    &:hover {
+      width: 45%;
+      height: auto;
+      border: 1px solid black;
+    }
   }
 }
 
