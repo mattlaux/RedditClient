@@ -1,6 +1,5 @@
 {
   "name": "my-app",
-  "homepage": "https://mattlaux.github.io/RedditClient/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,8 +20,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -49,7 +46,6 @@
     "eslint-plugin-jest-dom": "^4.0.1",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-testing-library": "^5.1.0",
-    "gh-pages": "^3.2.3",
     "msw": "^0.39.2",
     "prettier": "2.5.1"
   }
