@@ -458,23 +458,6 @@ code {
   max-width: 100%;
   height: auto;
 }
-.postContent .postUpvotes {
-  grid-column: 1;
-  grid-row: 5;
-  margin: 0px 10px;
-  color: #636262;
-}
-.postContent .postUpvotes > * {
-  display: inline;
-  margin-left: 2px;
-  margin-right: 2px;
-}
-.postContent .postUpvotes .upArrow {
-  color: green;
-}
-.postContent .postUpvotes .downArrow {
-  color: red;
-}
 .postContent .postAuthor {
   grid-column: 1;
   grid-row: 4;
@@ -506,7 +489,27 @@ code {
   margin-left: auto;
   margin-right: auto;
 }
-.postContent .numComments {
+.postContent .cardBottomRow {
+  display: inline-flex;
+}
+.postContent .cardBottomRow .postUpvotes {
+  grid-column: 1;
+  grid-row: 5;
+  margin: 0px 10px;
+  color: #636262;
+}
+.postContent .cardBottomRow .postUpvotes > * {
+  display: inline;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+.postContent .cardBottomRow .postUpvotes .upArrow {
+  color: green;
+}
+.postContent .cardBottomRow .postUpvotes .downArrow {
+  color: red;
+}
+.postContent .cardBottomRow .numComments {
   grid-column: 1;
   grid-row: 5;
   text-align: center;

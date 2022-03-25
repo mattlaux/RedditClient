@@ -128,28 +128,30 @@ function Post({ postData }) {
             )}
           </figure>
         </div>
-        <section className="postUpvotes">
-          <FontAwesomeIcon icon={solid('arrow-up')} className="upArrow" />
-          <p>{postData.ups ? postData.ups : 'Error'}</p>
-          <FontAwesomeIcon icon={solid('arrow-down')} className="downArrow" />
-        </section>
-        {location.pathname === '/detailView' ? (
-          <p className="numComments">
-            {postData.num_comments
-              ? postData.num_comments
-              : 'Number of comments failed to load'}{' '}
-            comments
-          </p>
-        ) : (
-          <NavLink to="/detailView" state={{ postData: postData }}>
+        <div className='cardBottomRow'>
+          <section className="postUpvotes">
+            <FontAwesomeIcon icon={solid('arrow-up')} className="upArrow" />
+            <p>{postData.ups ? postData.ups : 'Error'}</p>
+            <FontAwesomeIcon icon={solid('arrow-down')} className="downArrow" />
+          </section>
+          {location.pathname === '/detailView' ? (
             <p className="numComments">
               {postData.num_comments
                 ? postData.num_comments
-                : '0'}{' '}
-              comments
+                : 'Number of comments failed to load'}{' '}
+            comments
             </p>
-          </NavLink>
-        )}
+          ) : (
+            <NavLink to="/detailView" state={{ postData: postData }}>
+              <p className="numComments">
+                {postData.num_comments
+                  ? postData.num_comments
+                  : '0'}{' '}
+              comments
+              </p>
+            </NavLink>
+          )}
+        </div>
       </article>
       <hr className="postDivider"></hr>
     </div>
