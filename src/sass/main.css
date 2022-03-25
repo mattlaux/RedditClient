@@ -595,16 +595,35 @@ code {
   max-width: 100%;
   height: auto;
 }
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+}
 .header img {
-  min-width: 50px;
   width: 50px;
   height: auto;
+  animation: bounceIn 10s infinite;
 }
-.header h1 {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-.header input {
+.header input[type=text] {
+  background-image: url("../media/searchIcon.png");
+  background-size: contain;
   background-repeat: no-repeat;
   border: 2px solid #ccc;
   border-radius: 4px;
@@ -612,14 +631,15 @@ code {
   width: 100%;
   height: 25px;
   font-size: 1rem;
-  background-position: 10px 10px;
+  margin-left: 20px;
+  text-indent: 30px;
 }
 
 .detailView {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: 40px 1fr;
-  background-color: gainsboro;
+  background-color: white;
   min-width: 350px;
 }
 .detailView .detailViewHeader {
@@ -664,12 +684,39 @@ code {
 .detailView .detailViewPost .post {
   border: none;
   max-width: 700px;
-  background-color: white;
+  background-color: gainsboro;
 }
 .detailView .commentList {
   max-width: 700px;
   margin-right: auto;
   margin-left: auto;
+}
+.detailView .loadingComments {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  animation: loading 0.5s infinite;
+}
+@keyframes loading {
+  0% {
+    transform: rotateY(0);
+  }
+  25% {
+    transform: rotateY(90deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  75% {
+    transform: rotateY(270deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+.detailView .loadingComments img {
+  width: 30%;
+  height: auto;
 }
 
 .postsList {
@@ -677,6 +724,34 @@ code {
   margin-top: 160px;
   z-index: 1;
   min-width: 315px;
+}
+
+.loadingPosts {
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+  animation: loading 0.5s infinite;
+}
+@keyframes loading {
+  0% {
+    transform: rotateY(0);
+  }
+  25% {
+    transform: rotateY(90deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  75% {
+    transform: rotateY(270deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+.loadingPosts img {
+  width: 30%;
+  height: auto;
 }
 
 @media only screen and (min-width: 700px) {

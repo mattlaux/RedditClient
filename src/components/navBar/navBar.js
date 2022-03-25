@@ -20,7 +20,6 @@ function NavBar() {
       <figure>
         <img src={logo} alt="Reddit Logo"></img>
       </figure>
-      <h1>Mock Reddit</h1>
       <form>
         <input
           type="text"

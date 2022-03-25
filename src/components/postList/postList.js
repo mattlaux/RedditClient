@@ -7,6 +7,7 @@ import {
   selectSearchContent,
 } from '../../features/posts/postsSlice';
 import Post from '../post/post';
+import logo from '../../media/reddit-logo.png';
 
 /*
 Renders all posts if successfully received from Reddit API.
@@ -51,7 +52,13 @@ function PostList() {
     }
   }, [searchContent]);
 
-  return <div className='postsList'>{postsContent}</div>;
+  return status === 'loading posts' ? (
+    <div className='loadingPosts'>
+      <img src={logo} alt="Animated Reddit Logo"></img>
+    </div>
+  ) : (
+    <div className="postsList">{postsContent}</div>
+  );
 }
 
 export default PostList;
