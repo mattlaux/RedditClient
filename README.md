@@ -1,9 +1,11 @@
 # Mock Reddit Web Application
 
-This project is an imitation of the Reddit web application. It was built with React, Redux-Toolkit, and Sass. It was tested with Jest and React Testing Library.
+This project is an imitation of the Reddit web application. It was built with React, Redux-Toolkit, and Sass. Functional and integration testing was conducted with Jest and React Testing Library. End-to-end testing was conducted with Cypress. A live hosted version of the application can be seen [here](https://tangerine-dango-2a2c01.netlify.app).
 
-<font color='red'>TBD add screenshot</font>
-![Mock Reddit Homepage](./src/media/reddit-logo.png)
+**Disclaimer**: This web app pulls all information directly from Reddit. The posts that appear have not been chosen by me.
+
+![Mock Reddit Homepage](./src//media/appScreenshot.png)
+![Mock Post Comments](./src//media//commentScreenshot.png)
 
 ## Table of Contents
 
@@ -19,7 +21,7 @@ This project is an imitation of the Reddit web application. It was built with Re
 
 ---
 
-This project was created in order to demonstrate and improve upon my skills with React, Redux, Jest, React Testing Library, and Sass. In addition, this project emphasized requesting data from the Reddit API and properly handling the returned data.
+This project was created in order to demonstrate and improve upon my skills with React, Redux, Jest, React Testing Library, Sass, and Cypress. In addition, this project emphasized requesting data from the Reddit API and properly handling the returned data.
 
 ## Technologies
 
@@ -30,17 +32,17 @@ This project was created in order to demonstrate and improve upon my skills with
 - Jest 27.5.1
 - React Testing Library 12.1.4
 - Sass 1.3.0
-- Cypress <font color='red'>TBD</font>
+- Cypress 9.5.2
 
-## Setup <font color='red'>TBD</font>
+## Setup
 
 ---
 
-**Note:** A live hosted version of the application can be seen here. <font color='red'>TBD</font>
+**Note: A live hosted version of the application can be seen [here](https://tangerine-dango-2a2c01.netlify.app).**
 
 Setup of this web application is straight forward:
 
-- Download the repository Reddit Client linked here.
+- Download the repository Reddit Client linked [here](https://github.com/mattlaux/RedditClient).
 - Navigate to project directory and enter `cd my-app`
 - Run `npm install` and then `npm start`. The app will open in development mode at http://localhost:3000.
 
@@ -71,6 +73,13 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+#### `npm run cypress:open`
+
+Opens the Cypress test runner for end-to-end testing.<br />
+From here you will have the option to choose which browser to run the end-to-end test on.
+
+See more information regarding [Cypress](https://www.cypress.io).
+
 ## Features
 
 ---
@@ -78,6 +87,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - Retrieve posts from hot, new, or top from Reddit homepage
 - Click on post titles to see a detail view of the post with all comments
 - Click on links to view outside articles included in posts
+- Handles and renders a wide variety of media files returned from the Reddit API
 
 ## Project Status
 
@@ -88,7 +98,7 @@ This project has finished development for now. The primary goal was to deomnstra
 Areas of Improvement:
 
 - Video player (Right now video data used from Reddit API is poor)
-- Allow login
+- Implement login and authorization flow
 - Increased interactivity (save posts, add comment, upvote functionality, etc.)
 
 ## Sources
@@ -98,4 +108,3 @@ Areas of Improvement:
 - You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 - To learn React, check out the [React documentation](https://reactjs.org/).
 - To learn more on the API used, view the [Reddit JSON API Documentation](https://github.com/reddit-archive/reddit/wiki/JSON).
--
