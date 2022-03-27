@@ -67,7 +67,7 @@ function Post({ postData }) {
           <p>
             <span>
               Posted by{' '}
-              {postData.name ? postData.name : 'Post author failed to load'}
+              {postData.author ? postData.author : 'Post author failed to load'}
             </span>
             <span>
               {postData.created_utc
