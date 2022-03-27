@@ -15,25 +15,15 @@ function SortPosts() {
   const sortCategory = useSelector(selectSortCategory);
   const dispatch = useDispatch();
 
-  const onClickHot = () => {
-    dispatch(changeSortCategory('hot'));
-    dispatch(fetchPosts('hot'));
-  };
-
-  const onClickNew = () => {
-    dispatch(changeSortCategory('new'));
-    dispatch(fetchPosts('new'));
-  };
-
-  const onClickTop = () => {
-    dispatch(changeSortCategory('top'));
-    dispatch(fetchPosts('top'));
+  const handleClick = (category) => {
+    dispatch(changeSortCategory(category));
+    dispatch(fetchPosts(category));
   };
 
   return (
     <section className="sortPosts">
       <button
-        onClick={onClickHot}
+        onClick={() => handleClick('hot')}
         style={{
           borderBottom:
             sortCategory === 'hot' ? '3px solid lightblue' : 'transparent',
@@ -42,7 +32,7 @@ function SortPosts() {
         Hot
       </button>
       <button
-        onClick={onClickNew}
+        onClick={() => handleClick('new')}
         style={{
           borderBottom:
             sortCategory === 'new' ? '3px solid lightblue' : 'transparent',
@@ -51,7 +41,7 @@ function SortPosts() {
         New
       </button>
       <button
-        onClick={onClickTop}
+        onClick={() => handleClick('top')}
         style={{
           borderBottom:
             sortCategory === 'top' ? '3px solid lightblue' : 'transparent',
