@@ -107,7 +107,7 @@
 
 @media only screen and (min-width: 700px) {
   .post {
-    border: 2px solid lightblue;
+    border: 2px solid $accent-color;
     border-radius: 4px;
     padding: .5rem;
     -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
