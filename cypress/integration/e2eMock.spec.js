@@ -26,7 +26,7 @@ describe('e2e happy path', () => {
       .find('input')
       .type('ukraine')
       .should('have.value', 'ukraine');
-    cy.contains('second post title').should('not.exist');
+    cy.contains('2.6 First Banners Via Lumie').should('not.exist');
 
     // Click post title that routes to detail view
     cy.contains('Anon is a rapist ukraine').click();
