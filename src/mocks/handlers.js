@@ -1324,7 +1324,7 @@ export const handlers = [
                     mod_note: null,
                     all_awardings: [],
                     collapsed: false,
-                    body: "I mean anon used his mouth so it's not like she was the one to make it weird",
+                    body: 'I mean anon used his mouth so it\'s not like she was the one to make it weird',
                     edited: false,
                     top_awarded_type: null,
                     author_flair_css_class: null,
