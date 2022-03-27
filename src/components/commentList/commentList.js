@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectCommentFetchStatus,
-  selectComments,
-} from '../../features/comments/commentsSlice';
 import Comment from '../comment/comment';
 import { fetchComments } from '../../features/comments/commentsSlice';
 import PropTypes from 'prop-types';
@@ -11,11 +7,11 @@ import logo from '../../media/reddit-logo.png';
 
 /*
 Renders list of all comments once comments have been successfully received
-from Reddit API. Returns status if comments have not been successfully received.
+from Reddit API. Returns commentFetchStatus if comments have not been successfully received.
 */
 function CommentList({ postDataPermalink }) {
-  const status = useSelector(selectCommentFetchStatus);
-  const comments = useSelector(selectComments);
+  const commentsState = useSelector((state) => state.comments);
+  const { commentFetchStatus, comments } = commentsState;
   const [commentsContent, setCommentsContent] = useState([]);
   const dispatch = useDispatch();
 
@@ -24,17 +20,17 @@ function CommentList({ postDataPermalink }) {
   }, []);
 
   useEffect(() => {
-    if (status === 'succeeded' && comments.length > 0) {
+    if (commentFetchStatus === 'succeeded' && comments.length > 0) {
       const commentsContent = comments.map((comment) => (
         <Comment key={comment.data.id} commentData={comment.data} />
       ));
       setCommentsContent(commentsContent);
     } else {
-      setCommentsContent(status);
+      setCommentsContent(commentFetchStatus);
     }
-  }, [status]);
+  }, [commentFetchStatus]);
 
-  return status === 'loading comments' ? (
+  return commentFetchStatus === 'loading comments' ? (
     <div className='loadingComments'>
       <img src={logo} alt='Animated Reddit Logo'></img>
     </div>

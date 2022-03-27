@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  selectPosts,
-  selectPostsFetchStatus,
-  fetchPosts,
-  selectSearchContent,
-} from '../../features/posts/postsSlice';
+import { fetchPosts } from '../../features/posts/postsSlice';
 import Post from '../post/post';
 import logo from '../../media/reddit-logo.png';
 
@@ -17,9 +12,8 @@ Filters shown posts by input in search bar.
 
 function PostList() {
   const dispatch = useDispatch();
-  const posts = useSelector(selectPosts);
-  const status = useSelector(selectPostsFetchStatus);
-  const searchContent = useSelector(selectSearchContent);
+  const postsState = useSelector((state) => state.posts);
+  const { posts, postsFetchStatus, searchContent } = postsState;
   const [postsContent, setPostsContent] = useState([]);
 
   useEffect(() => {
@@ -27,15 +21,15 @@ function PostList() {
   }, []);
 
   useEffect(() => {
-    if (status === 'succeeded' && posts.length > 0) {
+    if (postsFetchStatus === 'succeeded' && posts.length > 0) {
       const postsContent = posts.map((post) => (
         <Post key={post.data.id} postData={post.data} />
       ));
       setPostsContent(postsContent);
     } else {
-      setPostsContent(status);
+      setPostsContent(postsFetchStatus);
     }
-  }, [status]);
+  }, [postsFetchStatus]);
 
   useEffect(() => {
     const filteredPosts = posts.filter((post) =>
@@ -52,7 +46,7 @@ function PostList() {
     }
   }, [searchContent]);
 
-  return status === 'loading posts' ? (
+  return postsFetchStatus === 'loading posts' ? (
     <div className='loadingPosts'>
       <img src={logo} alt="Animated Reddit Logo"></img>
     </div>
